@@ -1,0 +1,122 @@
+.otp-container {
+  height: calc(100vh - 100px);
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  .container {
+    border-radius: 10px;
+    padding: 0px 40px 40px 40px;
+    width: 494px;
+    text-align: center;
+  }
+}
+.phoneNumber {
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.form-container {
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.container {
+  border-radius: 10px;
+  padding: 40px;
+  width: 494px;
+  text-align: center;
+}
+.container img {
+  width: 80px;
+  margin-bottom: 20px;
+}
+.container h1 {
+  font-size: 33px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 44px; /* 122.222% */
+}
+.container p {
+  color: var(--Gray-70, #4a4666);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}
+.form-group {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.otp-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.form-group label {
+  color: #4a4666;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 150% */
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  color: var(--white-color);
+  border-bottom: 2px solid var(--white-color);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.form-control {
+  background-color: #fff;
+}
+
+.form-group i {
+  position: absolute;
+  margin-left: -25px;
+  margin-top: 15px;
+  color: #888;
+}
+.form-group input[type="text"],
+.form-group input[type="email"] {
+  padding-left: 30px;
+}
+.form-group textarea {
+  height: 100px;
+  resize: none;
+}
+
+@media (max-width: 767.98px) {
+  .container {
+    h1 {
+      font-size: 30px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+  .form-group input[type="text"],
+  .form-group input[type="email"] {
+    padding-left: 15px;
+  }
+}

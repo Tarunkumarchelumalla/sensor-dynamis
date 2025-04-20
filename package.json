@@ -1,0 +1,51 @@
+{
+  "name": "sensor-dynamis",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.7",
+    "@mui/material": "^6.4.5",
+    "@mui/styled-engine-sc": "^6.4.3",
+    "clsx": "^2.1.1",
+    "dotenv": "^16.4.7",
+    "framer-motion": "^12.4.7",
+    "next": "15.1.7",
+    "nodemailer": "^6.10.0",
+    "react": "^19.0.0",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^19.0.0",
+    "react-infinite-logo-slider": "^1.1.4",
+    "react-intl-tel-input": "^8.2.0",
+    "react-slick": "^0.30.3",
+    "react-swipeable-views": "^0.14.0",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.15",
+    "tailwind-merge": "^3.0.2",
+    "tailwind-scrollbar-hide": "^2.0.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/react-slick": "^0.23.13",
+    "@types/react-swipeable-views": "^0.13.6",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.7",
+    "postcss": "^8.5.3",
+    "sass": "^1.85.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5"
+  }
+}
