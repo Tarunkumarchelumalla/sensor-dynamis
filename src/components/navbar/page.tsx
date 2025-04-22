@@ -8,10 +8,6 @@ import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { Menu, MenuItem } from "@mui/material";
 
-// import Link from "next/link";
-
-// Alternatively, dynamically generate the links:
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const pagesWithLinks = ["Products", "About", "Contact", "Blog"];
 
 function ResponsiveAppBar() {

@@ -1,3 +1,5 @@
+"use client"
+
 import { Box, Button, Grid2, Typography } from "@mui/material";
 import React from "react";
 import SubText from "../Typography/sub-text";
@@ -32,8 +34,8 @@ function GetStartedSection() {
             fontWeight={400}
             maxWidth={'746px'}
           >
-            Getting started is simple, Whatever your organisation's size, let
-            our real-time aqua intelligence platform power your decision.
+           { `Getting started is simple, Whatever your organisation's size, let
+            our real-time aqua intelligence platform power your decision.`}
           </SubText>
         </Box>
         <Box>

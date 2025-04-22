@@ -1,18 +1,17 @@
 import React from 'react'
 import { Box, BoxProps } from '@mui/material'
 
-interface SubTextProps extends BoxProps {}
-
-function SubText(props: SubTextProps) {
+function SubText(props: BoxProps) {
   return (
-<Box
-  {...props}
-  sx={{
-    fontFamily: 'Roboto !important',
-  }}
->
-  {props.children}
-</Box>
+    <Box
+      {...props}
+      sx={{
+        ...props.sx, // to allow external sx to override or extend
+        fontFamily: 'Roboto !important',
+      }}
+    >
+      {props.children}
+    </Box>
   )
 }
 
