@@ -3,6 +3,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
+import SubText from "../Typography/sub-text";
 
 function HeroSection() {
   return (
@@ -101,10 +102,10 @@ function HeroSection() {
               flood preparedness
             </span>
           </Box>
-          <Box fontSize={"20px"} fontWeight={400}>
+          <SubText fontSize={{xs:'16px',md:'20px'}} fontWeight={400}>
             Leverage AI-powered environmental intelligence for smarter, more
             sustainable decisions.
-          </Box>
+          </SubText>
 
           <Box
             sx={{
@@ -202,7 +203,6 @@ function HeroSection() {
             borderRadius: "12px",
             flexDirection: "column",
             alignItems: "center",
-            height: "316px",
             gap: "24px",
             maxWidth: "454px",
             background:'#F6F9FF80',
@@ -227,9 +227,9 @@ function HeroSection() {
             }}
           >
             <Box sx={{ fontSize: "24px", fontWeight: 700 }}>Lock Content</Box>
-            <Box sx={{ fontSize: "14px", fontWeight: 400,textAlign:'center' }}>
+            <SubText fontSize={ "16px"} fontWeight={ 400}textAlign={'center'} >
               Access real-time data. Request permission to explore.
-            </Box>
+            </SubText>
 
             <Box>
               <Button startIcon={<Image src={"/hero-section/stars.svg"} alt={""} width={18} height={17}></Image>} sx={{
@@ -243,9 +243,9 @@ function HeroSection() {
               </Button>
             </Box>
               <Box display={'flex'} flexDirection={'row'} gap={'4px'}>
-              <Typography sx={{fontSize:'14px'}} textAlign={'center'}>
+              <SubText fontSize={'16px'} textAlign={'center'}>
               Learn more about premium feature
-              </Typography>
+              </SubText>
               <Image src={"/hero-section/arrow-black-45.svg"} width={24} height={24}  alt=""></Image>
               </Box>
 

@@ -39,14 +39,14 @@ body {
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(
     90deg,
-    var(--dark-secondary-color) 0%,
-    var(--dark-secondary-color) 105.07%
+    var(--primary-color) 0%,
+    var(--primary-color) 105.07%
   );
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-secondary-color);
+  background: var(--primary-color);
 }
 
 // Scroll
@@ -64,101 +64,29 @@ body {
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(
     90deg,
-    var(--dark-secondary-color) 0%,
-    var(--dark-secondary-color) 105.07%
+    var(--primary-color) 0%,
+    var(--primary-color) 105.07%
   );
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-secondary-color);
+  background: var(--primary-color);
 }
 
-@keyframes slide {
-  from {
-    transform: translateX(0);
-  }
 
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-.logos {
-  overflow: hidden;
-  padding: 10px 0;
-  background: var(--gray-color);
-  white-space: nowrap;
-  position: relative;
-}
-
-.logos:before,
-.logos:after {
-  position: absolute;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  content: "";
-  z-index: 2;
-}
-
-.logos:before {
-  left: 0;
-  background: linear-gradient(
-    to right,
-    var(--white-color) 0%,
-    transparent 100%
-  );
-}
-
-.logos:after {
-  right: 0;
-  background: linear-gradient(to left, var(--white-color) 0%, transparent 100%);
-}
-
-.logos-slide {
-  display: inline-block;
-  animation: 35s slide infinite linear;
-}
-
-.logos-slide img {
-  height: 50px;
-  margin: 0 80px 0 0px;
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.arrow {
-  color: var(--white-color);
-}
-
-// .iti-mobile .intl-tel-input .country-list {
-//   max-height: none !important;
-// }
-
-.intl-tel-input .country-list {
-  width: 100%;
-  scrollbar-color: var(--primary-color) var(--white-color);
-  overflow-x: hidden;
-}
-
-.iti-mobile .intl-tel-input.iti-container {
-  z-index: 10000000 !important;
-}
-
-.slick-prev {
-  display: none !important;
-}
-.slick-next {
-  display: none !important;
-}
 
 @font-face {
   font-family: 'Montserrat';
   src: url('/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;

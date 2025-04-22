@@ -12,6 +12,7 @@ import Grid from "@mui/material/Grid2";
 import Image from "next/image";
 
 import { useRouter } from "next/navigation";
+import SubText from "../Typography/sub-text";
 
 
 const Applications = [
@@ -53,10 +54,10 @@ export default function Footer() {
             height={31}
           ></Image>
           <Box marginTop={"24px"}>
-            <Typography variant="body1">
+            <SubText fontSize={'16px'} fontWeight={400}>
               Providing cutting-edge solutions for real-time monitoring and
               optimization across industries.
-            </Typography>
+            </SubText>
           </Box>
           <Typography variant="caption">Get in touch</Typography>
           <Box
@@ -105,9 +106,9 @@ export default function Footer() {
           }}
         >
           {Applications.map((el, index) => (
-            <Typography variant="body1" key={index} sx={{cursor:'pointer'}}>
+            <SubText fontSize={'14px'} fontWeight={600}  key={index}>
               {el}
-            </Typography>
+            </SubText>
           ))}
         </Grid>
         <Grid      size={{ xs: 12, md: 3 }}
@@ -120,9 +121,9 @@ export default function Footer() {
           }}
         >
           {QuickLinks.map((el, index) => (
-            <Typography variant="body1" key={index} sx={{cursor:'pointer'}}>
+            <SubText fontSize={'14px'} fontWeight={600} key={index} sx={{cursor:'pointer'}}>
               {el}
-            </Typography>
+            </SubText>
           ))}
         </Grid>
       </Grid>
@@ -137,8 +138,8 @@ export default function Footer() {
 
       <Box marginTop={'32px'} sx={{display:'flex',flexDirection:'row',justifyContent:'space-between',width:'100%'}}>
 
-        <Typography>© Sensor Dynamis. All rights reserved.</Typography>
-        <Typography>Terms & Conditions <span>Privacy Policy</span></Typography>
+        <SubText fontWeight={400}>© Sensor Dynamis. All rights reserved.</SubText>
+        <SubText fontWeight={400}>Terms & Conditions <span>Privacy Policy</span></SubText>
 
       </Box>
 
