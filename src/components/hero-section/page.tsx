@@ -63,7 +63,7 @@ function HeroSection() {
                 sx={{
                   borderRadius: "16px",
                   backgroundColor: "var(--white-color)",
-                  border: "1px solid #E9D7FE",
+                  border: "1px solid var(--light-pink)",
                   padding: "2px 8px",
                   whiteSpace: "nowrap",
                   flexShrink: 0,
@@ -224,10 +224,12 @@ function HeroSection() {
               justifyContent: "center",
               alignItems: "center",
               flexDirection: "column",
+              
             }}
+            width={{xs:'284px',md:'100%'}}
           >
             <Box sx={{ fontSize: "24px", fontWeight: 700 }}>Lock Content</Box>
-            <SubText fontSize={ "16px"} fontWeight={ 400}textAlign={'center'} >
+            <SubText fontSize={ "16px"} fontWeight={ 400}textAlign={'center'}  >
               Access real-time data. Request permission to explore.
             </SubText>
 

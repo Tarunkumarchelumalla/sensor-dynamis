@@ -104,27 +104,32 @@ function ProductSection() {
           </Box>
 
           {productData.map((item, index) => (
-            <Box marginTop={"32px"} key={index}>
+            <Box marginTop={"32px"} key={index}  sx={{
+              borderRadius: "8px",
+              border: '1px solid #00000003',
+          }}>
               <Accordion
                 expanded={expanded === item.id}
                 onChange={handleChange(item.id)}
               >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel3-content"
-                  id="panel3-header"
-                  sx={{
-                    padding: "16px 16px 16px 0px",
-                    height: "74px",
-                    background: "#F6F9FF",
-                    borderRadius: "8px",
-                  }}
-                >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel3-content"
+              id="panel3-header"
+              sx={{
+                padding: "16px 16px 16px 0px",
+                height: "74px",
+                backgroundColor: expanded === item.id ? "#F6F9FF" : "transparent"
+              }}
+            >
+
                   <Box
                     sx={{
                       display: "flex",
                       flexDirection: "row",
                       alignItems: "center",
+                      borderRadius: "8px",
+                      border: '1px solid #00000003',
                       gap: "12px",
                     }}
                   >
@@ -135,7 +140,7 @@ function ProductSection() {
                         borderRadius: "8px",
                         overflow: "hidden",
                         flexShrink: 0,
-                        position: "relative", // required when using `fill` with next/image
+                        position: "relative", 
                       }}
                     >
                       <Image

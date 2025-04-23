@@ -1,6 +1,8 @@
 import GetStartedSection from "@/components/get-started-section/page";
 import HeroSection from "@/components/hero-section/page";
+import MidContent from "@/components/mid-content/page";
 import ProductSection from "@/components/products-section/page";
+import Testimonials from "@/components/testimonials/page";
 
 export default function Home() {
 
@@ -8,6 +10,9 @@ export default function Home() {
     <HeroSection/>
     <ProductSection/>
     <GetStartedSection/>
+    <MidContent/>
+    <Testimonials/>
+
     </>
   );
 }
