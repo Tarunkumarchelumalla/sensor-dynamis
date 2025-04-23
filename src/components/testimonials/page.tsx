@@ -54,9 +54,9 @@ function Testimonials() {
           <Grid2 size={{xs:12,md:8}} sx={{
            
           }}>
-            <Typography fontSize={{xs:'16px',md:'36px'}} fontWeight={600} >Trusted by Global Organisation's & Local Authorities</Typography>
+            <Typography fontSize={{xs:'16px',md:'36px'}} fontWeight={600} >{`Trusted by Global Organisation's & Local Authorities`}</Typography>
 
-            <SubText fontSize={{xs:'16px',md:'20px'}} fontWeight={400} marginTop={'12px'}>Leading organizations, governments and local authorities use the Dynamis platform to support daily operations, develop preventive maintenance programs, guide long-term strategies.</SubText>
+            <SubText fontSize={{xs:'16px',md:'20px'}} fontWeight={400} marginTop={'12px'}>{`Leading organizations, governments and local authorities use the Dynamis platform to support daily operations, develop preventive maintenance programs, guide long-term strategies.`}</SubText>
 
           </Grid2>
           <Grid2 size={{xs:12,md:4}} display={'flex'} flexDirection={'row'} justifyContent={'end'}>
