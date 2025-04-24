@@ -65,8 +65,10 @@ function MidContent() {
                 backgroundRepeat: "no-repeat",
                 padding: "40px",
                 borderRadius: "16px",
-                minHeight:'438px'
-            }}>
+                
+            }}
+            minHeight={{xs:'218px',md:'438px'}}
+                        >
 
             </Grid2>
             <Grid2 order={{md:item.order2}} size={{xs:12,md:6}} sx={{

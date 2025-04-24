@@ -135,8 +135,10 @@ function GetStartedSection() {
           size={{ xs: 12, md: 4 }}
           display="flex"
           justifyContent={{ xs: "flex-start", md: "flex-end" }}
+          
         >
           <Button
+          
             sx={{
               background: "var(--white-color)",
               borderRadius: "8px",
@@ -145,6 +147,7 @@ function GetStartedSection() {
               fontWeight: 700,
               fontSize: "16px",
               textTransform: "none",
+              width:{ xs: '100%', md: 'fit-content' }
             }}
             endIcon={
               <Image
@@ -154,6 +157,8 @@ function GetStartedSection() {
                 height={24}
               />
             }
+          
+
           >
             Get Started
           </Button>

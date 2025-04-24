@@ -101,7 +101,7 @@ const SlideCarousel = forwardRef<SlideCarouselRef, SlideCarouselProps>(
 
     return (
       <div className="main-container w-full flex flex-col justify-center items-center">
-        <div className="relative w-full min-h-[calc(100vh - 100px)] flex justify-center items-center">
+        <div className="relative w-full min-h-[358px] flex justify-center items-center">
           <div ref={carouselRef} className="flex overflow-hidden w-full h-full">
             {slides.map((slide, index) => (
               <motion.div
@@ -116,7 +116,7 @@ const SlideCarousel = forwardRef<SlideCarouselRef, SlideCarouselProps>(
                   height={900}
                   src={slide.src}
                   alt={slide.caption || ""}
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full min-h-[358px] object-cover rounded-lg"
                 />
                 {slide.caption && (
                   <Box
