@@ -56,7 +56,7 @@ function MidContent() {
 
       { content.map((item,index)=>(
           <>
-            <Grid2 order={{md:item.order1}} size={{xs:12,md:6}} sx={{
+            <Grid2 order={{xs:2 + index,md:item.order1}} size={{xs:12,md:6}} sx={{
                 backgroundImage:`url(${item.imageUrl})`,
                 position: "relative",
                 width: "100%",
@@ -71,7 +71,7 @@ function MidContent() {
                         >
 
             </Grid2>
-            <Grid2 order={{md:item.order2}} size={{xs:12,md:6}} sx={{
+            <Grid2 order={{xs:1 + index,md:item.order2}} size={{xs:12,md:6}} sx={{
               display:'flex',
               justifyContent:'center',
               alignItems:'start',
