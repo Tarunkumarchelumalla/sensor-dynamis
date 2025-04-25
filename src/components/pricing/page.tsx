@@ -53,7 +53,7 @@ function Pricing() {
   };
 
   return (
-    <Box padding={{ xs: '24px 10px', md: '80px' }} display='flex' flexDirection='column' alignItems='center'>
+    <Box padding={{ xs: '24px 10px', md: '80px' }} display='flex' flexDirection='column' alignItems='center' id='solutions'>
       <SubText fontWeight={400} fontSize={{ xs: '14px', md: '20px' }}>
         The Future of Real-Time Data Monitoring
       </SubText>

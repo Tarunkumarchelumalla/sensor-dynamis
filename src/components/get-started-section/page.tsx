@@ -13,6 +13,18 @@ interface Int_solution_card {
 }
 
 function GetStartedSection() {
+
+  const scrollToDiv = () => {
+    const targetDiv = document.getElementById("solutions");
+    console.log({targetDiv})
+    if (targetDiv) {
+      targetDiv.scrollIntoView({
+        behavior: "smooth", // Smooth scroll
+        block: "start", // Align to the start of the element
+      });
+    }
+  };
+
   const solution1: Int_solution_card = {
     imageUrl: "/get-started-section/number1.svg",
     isButton: true,
@@ -71,6 +83,8 @@ function GetStartedSection() {
             sx={{
               cursor: "pointer",
             }}
+
+           onClick={scrollToDiv} 
           >
             <SubText fontWeight={400} fontSize={{ xs: "14px", md: "20px" }}>
               Our Solutions
