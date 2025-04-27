@@ -48,7 +48,7 @@ function MidContent() {
         background: "var(--White-color)",
       }}
       padding={{
-        xs: "24px 10px",
+        xs: "64px 10px",
         md: "80px",
       }}
     >

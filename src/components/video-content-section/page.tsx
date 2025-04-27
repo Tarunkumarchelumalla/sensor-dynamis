@@ -87,7 +87,7 @@ function VideoSection() {
     <Box
       sx={{
         padding: {
-          xs: "10px 24px",
+          xs: "64px 10px ",
           md: "80px",
         },
         background: "var(--bg-primary-linear)",
@@ -105,7 +105,7 @@ function VideoSection() {
           },
         }}
       >
-        <Typography fontWeight={600} fontSize={{ xs: "16px", md: "36px" }}>
+        <Typography fontWeight={600} fontSize={{ xs: "24px", md: "36px" }}>
           Real-World Climate Change Impact Stories
         </Typography>
         <SubText>

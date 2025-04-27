@@ -44,7 +44,7 @@ function Testimonials() {
         gap:'40px',
         background:'var(--primary-light-color)'
       }}
-      padding={{ xs: "24px 10px",md:'80px' }}
+      padding={{ xs: "64px 10px",md:'80px' }}
     >
       {/* <button onClick={() => carouselRef.current?.prevSlide()}>Prev</button>
          <button onClick={() => carouselRef.current?.nextSlide()}>Next</button> */}

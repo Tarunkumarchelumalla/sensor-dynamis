@@ -125,7 +125,7 @@ function WhyItMattersSection() {
     <Box
       sx={{
         padding: {
-          xs: "10px 24px",
+          xs: " 64px 10px",
           md: "80px",
         },
         color: "var(--black-color)",
