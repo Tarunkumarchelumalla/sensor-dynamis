@@ -83,7 +83,7 @@ function ProductSection() {
       <Grid2 container >
         <Grid2
           size={{ xs: 12, md: 6 }}
-          padding={{ xs: "24px 10px", md: "80px" }}
+          padding={{ xs: "64px 10px", md: "80px" }}
         >
           <Box>
             <MainHeader>
