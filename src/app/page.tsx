@@ -4,6 +4,8 @@ import MidContent from "@/components/mid-content/page";
 import Pricing from "@/components/pricing/page";
 import ProductSection from "@/components/products-section/page";
 import Testimonials from "@/components/testimonials/page";
+import VideoSection from "@/components/video-content-section/page";
+import WhyItMattersSection from "@/components/why-it-matters-section/page";
 
 export default function Home() {
 
@@ -14,6 +16,8 @@ export default function Home() {
     <MidContent/>
     <Testimonials/>
     <Pricing/>
+    <VideoSection/>
+    <WhyItMattersSection/>
     </>
   );
 }

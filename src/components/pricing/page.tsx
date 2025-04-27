@@ -37,7 +37,7 @@ function Pricing() {
     { Featires: "Notifications", "Wave(AWI)": "ICON", "Flood/River(AFAS)": "ICON", "Reservoir/Dam(AFAS Pro)": "ICON", "Tsunami(ATAS)": "ICON", "Tsunami(ATAS Pro)": "ICON", "Smart-City/Enterprise": "ICON" },
   ];
 
-  const renderTableCell = (value:any) => {
+  const renderTableCell = (value: any) => {
     if (value === "ICON") {
       return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -66,7 +66,7 @@ function Pricing() {
             <tr className='bg-[var(--primary-light-color)] h-[44px] w-full'>
               <th className='bg-[var(--primary-light-color)] h-[44px] min-w-[176.5px]'></th>
               {sectionHeaders.map((section, index) => (
-                <th key={index} className='p-[10px] font-bold text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px] text-black text-center border-r border-gray-200 h-[44px] min-w-[176.5px]'>
+                <th key={`section-header-${index}`} className='p-[10px] font-bold text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px] text-black text-center border-r border-gray-200 h-[44px] min-w-[176.5px]'>
                   <SubText>{section}</SubText>
                 </th>
               ))}
@@ -76,7 +76,7 @@ function Pricing() {
                 <SubText fontWeight={600} fontSize='16px' textAlign='left'>Features</SubText>
               </th>
               {subHeaders.map((sub, index) => (
-                <th key={index} className='p-[10px] font-semibold text-[10px] text-gray-600 border-r border-gray-200'>
+                <th key={`sub-header-${index}`} className='p-[10px] font-semibold text-[10px] text-gray-600 border-r border-gray-200'>
                   <SubText fontWeight={400} fontSize='14px' color='var(--black-color)'>
                     {sub}
                   </SubText>
@@ -86,9 +86,12 @@ function Pricing() {
           </thead>
           <tbody>
             {tableData.map((row, rowIndex) => (
-              <tr key={rowIndex} className='h-[44px] align-middle'>
-                {Object.values(row).map((value, colIndex) => (
-                  <td key={colIndex} className={`px-1 py-1 w-[140px] align-middle ${value !== "ICON" ? 'bg-[var(--primary-light-color)] border-t border-gray-200' : ' border-r border-gray-200'}`}>
+              <tr key={`row-${rowIndex}`} className='h-[44px] align-middle'>
+                {Object.entries(row).map(([key, value], colIndex) => (
+                  <td
+                    key={`cell-${rowIndex}-${colIndex}`}
+                    className={`px-1 py-1 w-[140px] align-middle ${value !== "ICON" ? 'bg-[var(--primary-light-color)] border-t border-gray-200' : 'border-r border-gray-200'}`}
+                  >
                     {renderTableCell(value)}
                   </td>
                 ))}

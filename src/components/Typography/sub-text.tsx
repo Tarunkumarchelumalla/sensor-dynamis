@@ -6,6 +6,11 @@ function SubText(props: BoxProps) {
     <Box
       {...props}
       sx={{
+        fontWeight:400,
+        fontSize:{
+          xs:'14px',
+          md:'20px'
+        },
         ...props.sx, // to allow external sx to override or extend
         fontFamily: 'Roboto !important',
       }}

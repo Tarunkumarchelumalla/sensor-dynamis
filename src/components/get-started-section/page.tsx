@@ -61,7 +61,6 @@ function GetStartedSection() {
           background: "var(--secondary-color)",
           gap: "12px",
           flex: 1,
-          minHeight:'229px',
           borderRadius: "12px",
           justifyContent: "start",
         }}
