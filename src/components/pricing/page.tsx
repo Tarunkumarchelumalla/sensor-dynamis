@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import SubText from "../Typography/sub-text";
 import Image from "next/image";
+import MainHeader from "../Typography/main-header";
 
 function Pricing() {
   const sectionHeaders = [
@@ -54,12 +55,12 @@ function Pricing() {
 
   return (
     <Box padding={{ xs: '64px 10px', md: '80px' }} display='flex' flexDirection='column' alignItems='center' id='solutions'>
-      <SubText fontWeight={400} fontSize={{ xs: '14px', md: '20px' }}>
+      <SubText fontWeight={400} fontSize={{ xs: '16px', md: '20px' }}>
         The Future of Real-Time Data Monitoring
       </SubText>
-      <Typography fontWeight={600} fontSize={{ xs: '16px', md: '36px' }}>
+      <MainHeader >
         Our Solutions
-      </Typography>
+      </MainHeader>
       <Box overflow='auto' width='100%'>
         <table className='min-w-full border border-gray-200 rounded-2xl text-center text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] mt-4'>
           <thead>

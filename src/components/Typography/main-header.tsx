@@ -9,7 +9,7 @@ function MainHeader(props: TypographyProps) {
         sx={{
           fontWeight:600,
           fontSize:{
-            xs:'16px',
+            xs:'24px',
             md:'36px'
           },
           ...props.sx, // to allow external sx to override or extend

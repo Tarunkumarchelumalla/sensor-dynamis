@@ -1,6 +1,7 @@
 import { Box, Grid2, Typography } from "@mui/material";
 import React from "react";
 import SubText from "../Typography/sub-text";
+import MainHeader from "../Typography/main-header";
 
 interface Int_content {
   imageUrl: string;
@@ -52,14 +53,12 @@ function MidContent() {
         md: "80px",
       }}
     >
-      <Typography
+      <MainHeader
         textAlign={{ xs: "left", md: "center" }}
-        fontSize={{ xs: "24px", md: "36px" }}
-        fontWeight={600}
       >
         Communities and businesses rely on data-driven water solutions that put
         them first.
-      </Typography>
+      </MainHeader>
 
       <Grid2 container spacing={2} sx={{ marginTop: "40px" }}>
         {content.map((item, index) => (

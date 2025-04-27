@@ -14,6 +14,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import SubText from "../Typography/sub-text";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MainHeader from "../Typography/main-header";
 
 const productData = [
   {
@@ -85,9 +86,9 @@ function ProductSection() {
           padding={{ xs: "24px 10px", md: "80px" }}
         >
           <Box>
-            <Typography fontSize={{ xs: "24px", md: "36px" }} fontWeight={600}>
+            <MainHeader>
               Explore Our Intelligent Alert Systems
-            </Typography>
+            </MainHeader>
             <SubText
               fontSize={{ xs: "16px", md: "20px" }}
               marginTop={"12px"}

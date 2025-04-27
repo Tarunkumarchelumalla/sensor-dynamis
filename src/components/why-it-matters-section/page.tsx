@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import SubHeader from "../Typography/sub-header";
 import SubText from "../Typography/sub-text";
+import MainHeader from "../Typography/main-header";
 
 function WhyItMattersSection() {
   const blogData = [
@@ -132,13 +133,10 @@ function WhyItMattersSection() {
         background: "var(--white-color)",
       }}
     >
-      <Typography
-        textAlign={"left"}
-        fontWeight={600}
-        fontSize={{ xs: "24px", md: "36px" }}
+      <MainHeader
       >
         What We Do. Why It Matters.
-      </Typography>
+      </MainHeader>
 
       <Grid2 container marginTop={"32px"} spacing={4}>
         <Grid2 size={{ xs: 12, md: 6 }}>

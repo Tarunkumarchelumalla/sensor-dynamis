@@ -4,6 +4,7 @@ import { Box, Button, Grid2, Typography } from "@mui/material";
 import React from "react";
 import SubText from "../Typography/sub-text";
 import Image from "next/image";
+import MainHeader from "../Typography/main-header";
 
 interface Int_solution_card {
   imageUrl: string;
@@ -132,7 +133,7 @@ function GetStartedSection() {
         justifyContent="space-between"
       >
         <Grid2 size={{ xs: 12, md: 8 }}>
-          <Typography fontSize={{xs:'24px',md:"36px"}}>Proactive Forecasting</Typography>
+          <MainHeader>Proactive Forecasting</MainHeader>
           <SubText
             marginTop={"12px"}
             fontSize={{ xs: "16px", md: "20px" }}

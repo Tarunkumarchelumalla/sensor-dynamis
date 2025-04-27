@@ -2,6 +2,7 @@ import { Box, Grid2, Typography } from "@mui/material";
 import React from "react";
 import SubText from "../Typography/sub-text";
 import Image from "next/image";
+import MainHeader from "../Typography/main-header";
 
 function VideoSection() {
   const videoData = [
@@ -105,9 +106,9 @@ function VideoSection() {
           },
         }}
       >
-        <Typography fontWeight={600} fontSize={{ xs: "24px", md: "36px" }}>
+        <MainHeader >
           Real-World Climate Change Impact Stories
-        </Typography>
+        </MainHeader>
         <SubText>
           See how real-time data helps communities tackle floods, tsunamis, and
           climate risks for a safer future.
