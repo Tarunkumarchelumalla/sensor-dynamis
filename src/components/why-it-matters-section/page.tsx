@@ -104,6 +104,7 @@ function WhyItMattersSection() {
           <Box
             display={"flex"}
             flexDirection={"row"}
+            marginTop={'12px'}
             gap={"8px"}
             sx={{
               cursor: "pointer",
