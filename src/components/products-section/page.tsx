@@ -6,6 +6,7 @@ import {
   AccordionDetails,
   AccordionSummary,
   Box,
+  BoxProps,
   Button,
   Grid2,
   Typography,
@@ -23,6 +24,7 @@ const productData = [
     description: `The Advanced Flood Alert System (AFAS) provides localized real-time alerts 24/7, ensuring
     communities are prepared and protected. Designed to monitor river levels, dry riverbeds, and glacier
     lakes, AFAS enables authorities to detect early signs of potential flooding before disaster strikes.`,
+    xsImage: "/afas-secondary-logo.svg",
     image: "/product-section/afas.svg",
     buttons: [
       {
@@ -43,6 +45,7 @@ ensuring coastal communities and authorities have the critical time needed to ac
 strikes. ATAS integrates predictive modeling, anomaly detection, and real-time monitoring to enhance
 situational awareness and preparedness.`,
     image: "/product-section/atas.svg",
+    xsImage: "/atas-secondary-logo.svg",
     buttons: [
       {
         title: "ATAS",
@@ -61,6 +64,7 @@ situational awareness and preparedness.`,
 safety are paramount. AWI is specifically designed to provide critical real-time data and alerts,
 enhancing both safety and productivity while enabling accurate validation.`,
     image: "/product-section/awi.svg",
+    xsImage: "/awi-secondary-logo.svg",
     buttons: [
       {
         title: "AWI",
@@ -70,6 +74,56 @@ enhancing both safety and productivity while enabling accurate validation.`,
   },
 ];
 
+const CardComponent = (item: (typeof productData)[0]) => {
+  return (
+    <Box
+      sx={{
+        display: {
+          xs: "flex",
+          md: "none",
+        },
+        flexDirection: "column",
+        gap: "12px",
+        marginTop: "16px",
+      }}
+    >
+      <Image src={item.xsImage} alt={""} height={24} width={24} />
+      <SubText fontSize={"14px"} sx={{ fontWeight: 600 }}>
+        {item.title}
+      </SubText>
+      <SubText fontSize={"14px"}>{item.description} </SubText>
+      <Box
+        color="var(--black-color)"
+        display={"flex"}
+        flexDirection={"row"}
+        gap={"8px"}
+        sx={{ cursor: "pointer" }}
+      >
+        <SubText fontWeight={700} fontSize={{ xs: "14px", md: "24px" }}>
+          View More
+        </SubText>
+        <Image
+          src={"/testimonials/right-arrow.svg"}
+          alt={""}
+          height={10}
+          width={10}
+        />
+      </Box>
+      <Image
+        src={"/product-section/product.svg"}
+        alt={""}
+        height={218}
+        width={32}
+        style={{
+          width: "100%",
+          height: "218px",
+          objectFit: "cover",
+          borderRadius: "8px",
+        }}
+      />
+    </Box>
+  );
+};
 function ProductSection() {
   const [expanded, setExpanded] = useState<string | false>(false);
 
@@ -80,15 +134,13 @@ function ProductSection() {
 
   return (
     <Box>
-      <Grid2 container >
+      <Grid2 container>
         <Grid2
           size={{ xs: 12, md: 6 }}
           padding={{ xs: "64px 10px", md: "80px" }}
         >
           <Box>
-            <MainHeader>
-              Explore Our Intelligent Alert Systems
-            </MainHeader>
+            <MainHeader>Explore Our Intelligent Alert Systems</MainHeader>
             <SubText
               fontSize={{ xs: "16px", md: "20px" }}
               marginTop={"12px"}
@@ -105,32 +157,40 @@ function ProductSection() {
           </Box>
 
           {productData.map((item, index) => (
-            <Box marginTop={"32px"} key={index}  sx={{
-              borderRadius: "8px",
-              border: '1px solid #00000003',
-          }}>
+            <Box
+              marginTop={"32px"}
+              key={index}
+              sx={{
+                borderRadius: "8px",
+                border: "1px solid #00000003",
+                display: {
+                  xs: "none",
+                  md: "flex",
+                },
+              }}
+            >
               <Accordion
                 expanded={expanded === item.id}
                 onChange={handleChange(item.id)}
               >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel3-content"
-              id="panel3-header"
-              sx={{
-                padding: "16px 16px 16px 0px",
-                height: "74px",
-                backgroundColor: expanded === item.id ? "#F6F9FF" : "transparent"
-              }}
-            >
-
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel3-content"
+                  id="panel3-header"
+                  sx={{
+                    padding: "16px 16px 16px 0px",
+                    height: "74px",
+                    backgroundColor:
+                      expanded === item.id ? "#F6F9FF" : "transparent",
+                  }}
+                >
                   <Box
                     sx={{
                       display: "flex",
                       flexDirection: "row",
                       alignItems: "center",
                       borderRadius: "8px",
-                      border: '1px solid #00000003',
+                      border: "1px solid #00000003",
                       gap: "12px",
                     }}
                   >
@@ -141,7 +201,7 @@ function ProductSection() {
                         borderRadius: "8px",
                         overflow: "hidden",
                         flexShrink: 0,
-                        position: "relative", 
+                        position: "relative",
                       }}
                     >
                       <Image
@@ -170,6 +230,10 @@ function ProductSection() {
               </Accordion>
             </Box>
           ))}
+
+          {productData.map((item, index) => (
+            <CardComponent {...item} key={index} />
+          ))}
         </Grid2>
         <Grid2
           size={{ xs: 12, md: 6 }}
@@ -189,27 +253,31 @@ function ProductSection() {
             sx={{
               borderRadius: "12px",
               padding: "24px",
-
             }}
           >
-            <SubText color={'var(--white-color)'}>
+            <SubText color={"var(--white-color)"}>
               Advanced Flood Alert System (AFAS) is designed to provide
               localized real-time alerts 24/7, ensuring your community is
               prepared and protected.
             </SubText>
             <Box
-   
               color="var(--highlight-color)"
-              display={'flex'}
-              flexDirection={'row'}
-              gap={'8px'}
+              display={"flex"}
+              flexDirection={"row"}
+              gap={"8px"}
               sx={{
-                cursor:'pointer'
+                cursor: "pointer",
               }}
             >
-              <SubText            fontWeight={700}
-              fontSize={{ xs: "14px", md: "24px" }}>View More</SubText>
-              <Image src={'/product-section/right-yellow-arrow.svg'} alt={""} height={32} width={32}></Image>
+              <SubText fontWeight={700} fontSize={{ xs: "14px", md: "24px" }}>
+                View More
+              </SubText>
+              <Image
+                src={"/product-section/right-yellow-arrow.svg"}
+                alt={""}
+                height={32}
+                width={32}
+              ></Image>
             </Box>
           </Box>
         </Grid2>

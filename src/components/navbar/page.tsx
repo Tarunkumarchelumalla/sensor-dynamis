@@ -92,79 +92,115 @@ function ResponsiveAppBar() {
             aria-controls={open ? 'basic-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
-              key={page.name}
-              component="a"
-              onClick={(event) =>
-                page.onClick
-                  ? page.onClick(event as any)
-                  : handleNavigation(page.link)
-              }
-              sx={{
-                padding: "0px",
-                color: isActive ? "var(--primary-color)" : "var(--dark-color)",
-                display: "flex", // changed from block to flex for better alignment
-                alignItems: "center", // vertical alignment
-                gap: "4px", // space between text and icon
-                textTransform: "none",
-                fontSize: "16px",
-                position: "relative",
-              }}
-              endIcon={
-                page.icon ? (
-                  <Box
-                    component="span"
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      marginLeft: "2px",
-                    }}
-                  >
-                    <Image
-                      src={page.icon || ""}
-                      alt=""
-                      width={12}
-                      height={6}
-                      style={{ display: "block" }}
-                    />
-                  </Box>
-                ) : (
-                  <></>
-                )
-              }
-            >
-              {page.name}
-            </Button>
+            key={page.name}
+            component="a"
+            onClick={(event) =>
+              page.onClick
+                ? page.onClick(event as any)
+                : handleNavigation(page.link)
+            }
+            sx={{
+              paddingBottom: "10px ",
+              color: isActive ? "var(--primary-color)" : "var(--dark-color)",
+              display: "flex",
+              alignItems: "center",
+              gap: "4px",
+              textTransform: "none",
+              fontSize: "16px",
+              position: "relative",
+              overflow: "hidden", // Needed for the after element
+              '&::after': {
+                content: '""',
+                position: "absolute",
+                bottom: 1,
+                left: 0,
+                height: "4px",
+                width: "0%",
+                backgroundColor: "var(--highlight-color)",
+                transition: "width 0.3s ease",
+              },
+              '&:hover::after': {
+                width: "100%",
+              },
+            }}
+            endIcon={
+              page.icon ? (
+                <Box
+                  component="span"
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginLeft: "2px",
+                  }}
+                >
+                  <Image
+                    src={page.icon || ""}
+                    alt=""
+                    width={12}
+                    height={6}
+                    style={{ display: "block" }}
+                  />
+                </Box>
+              ) : (
+                <></>
+              )
+            }
+          >
+            {page.name}
+          </Button>
+          
           );
         })}
       </Box>
 
       <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        disableScrollLock={true}
-        MenuListProps={{
-          "aria-labelledby": "basic-button",
-        }}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
-        container={
-          typeof window !== "undefined" ? () => window.document.body : undefined
-        }
-      >
-        <MenuItem onClick={handleClose}>AFAS</MenuItem>
-        <MenuItem onClick={handleClose}>AFAS(PRO)</MenuItem>
-        <MenuItem onClick={handleClose}>ATAS</MenuItem>
-        <MenuItem onClick={handleClose}>ATAS(PRO)</MenuItem>
-        <MenuItem onClick={handleClose}>AWI</MenuItem>
-      </Menu>
+  id="basic-menu"
+  anchorEl={anchorEl}
+  open={open}
+  onClose={handleClose}
+  disableScrollLock={true}
+  MenuListProps={{
+    "aria-labelledby": "basic-button",
+  }}
+  anchorOrigin={{
+    vertical: "bottom",
+    horizontal: "left",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "left",
+  }}
+  container={typeof window !== "undefined" ? () => window.document.body : undefined}
+  PaperProps={{
+    sx: {
+      maxWidth:'278px',
+      overflow: "visible",
+      mt: 1.5, // margin top to fit the arrow
+      boxShadow: "0px 4px 20px rgba(0,0,0,0.1)",
+      position: "relative",
+      "&::before": {
+        content: '""',
+        position: "absolute",
+        top: 0,
+        left: "24px", // Adjust based on your design
+        width: 12,
+        height: 12,
+        backgroundColor: "white", // Menu background color
+        transform: "translateY(-50%) rotate(45deg)",
+        zIndex: 0,
+        boxShadow: "-1px -1px 1px rgba(0,0,0,0.05)",
+      },
+      borderRadius: "16px", // Rounded corners for menu
+    },
+  }}
+>
+  <MenuItem onClick={handleClose}>AFAS</MenuItem>
+  <MenuItem onClick={handleClose}>AFAS(PRO)</MenuItem>
+  <MenuItem onClick={handleClose}>ATAS</MenuItem>
+  <MenuItem onClick={handleClose}>ATAS(PRO)</MenuItem>
+  <MenuItem onClick={handleClose}>AWI</MenuItem>
+</Menu>
+
     </Toolbar>
   );
 }

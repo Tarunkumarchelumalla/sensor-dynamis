@@ -5,22 +5,16 @@ import {
   useRef,
   useImperativeHandle,
   forwardRef,
+  ReactNode,
 } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import SubText from "../Typography/sub-text";
-import { Box, Typography } from "@mui/material";
+import { BoxProps } from "@mui/material";
 
 export interface Int_Slide {
   src: string;
   caption?: string;
   title: string;
-  author:string
-}
-
-export interface SlideCarouselProps {
-  scrollType?: "auto" | "manual";
-  slides: Int_Slide[];
+  author: string;
 }
 
 export interface SlideCarouselRef {
@@ -28,8 +22,14 @@ export interface SlideCarouselRef {
   prevSlide: () => void;
 }
 
+export interface SlideCarouselProps extends BoxProps {
+  scrollType?: "auto" | "manual";
+  slides: Int_Slide[];
+  renderSlide: (slide: Int_Slide, index: number) => ReactNode;
+}
+
 const SlideCarousel = forwardRef<SlideCarouselRef, SlideCarouselProps>(
-  ({ scrollType = "auto", slides = [] }, ref) => {
+  ({ scrollType = "auto", slides = [], renderSlide, ...rest }, ref) => {
     const [current, setCurrent] = useState(0);
     const carouselRef = useRef<HTMLDivElement>(null);
     const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
@@ -100,7 +100,9 @@ const SlideCarousel = forwardRef<SlideCarouselRef, SlideCarouselProps>(
     }));
 
     return (
-      <div className="main-container w-full flex flex-col justify-center items-center">
+      <div
+        className="main-container w-full flex flex-col justify-center items-center"
+      >
         <div className="relative w-full min-h-[358px] flex justify-center items-center">
           <div ref={carouselRef} className="flex overflow-hidden w-full h-full">
             {slides.map((slide, index) => (
@@ -111,77 +113,7 @@ const SlideCarousel = forwardRef<SlideCarouselRef, SlideCarouselProps>(
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <Image
-                  width={1600}
-                  height={900}
-                  src={slide.src}
-                  alt={slide.caption || ""}
-                  className="w-full min-h-[358px] object-cover rounded-lg"
-                />
-                {slide.caption && (
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      bottom: 16, // equivalent to bottom-4
-                      left: 12, // equivalent to left-3
-                      width: "calc(100% - 30px)",
-                      border: "1px solid white",
-                      borderRadius: "8px",
-                      color: "var(--white-color)",
-                      padding:'20px',
-                      backdropFilter: 'blur(20px)'
-
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        width: "100%",
-                      }}
-                    >
-                      <Typography
-                        color="var(--highlight-color)"
-                        fontSize={{ xs: "16px", md: "24px" }}
-                        fontWeight={700}
-                      >
-                        {slide.title}
-                      </Typography>
-                      <SubText
-                        fontSize={{ xs: "16px", md: "20px" }}
-                        fontWeight={400}
-                      >
-                        Read full story
-                      </SubText>
-                    </Box>
-
-                    <SubText
-                      sx={{
-                        color: "var(--white-color)",
-                        textAlign: "left",
-                        width: "100%",
-                        borderRadius: "8px",
-                        fontSize: {
-                         xs:"16px",
-                         md:"20px"
-                        },
-                        p: 1,
-                      }}
-                    >
-                      {slide.caption}
-                    </SubText>
-                    <SubText  sx={{
-                        color: "var(--white-color)",
-                        width: "100%",
-                        borderRadius: "8px",
-                        fontSize: {
-                         xs:"16px",
-                         md:"16px"
-                        },
-                        p: 1,
-                      }} textAlign={'end'}>{slide.author}</SubText>
-                  </Box>
-                )}
+                {renderSlide(slide, index)}
               </motion.div>
             ))}
           </div>
@@ -191,5 +123,4 @@ const SlideCarousel = forwardRef<SlideCarouselRef, SlideCarouselProps>(
   }
 );
 
-SlideCarousel.displayName = "SlideCarousel";
 export default SlideCarousel;

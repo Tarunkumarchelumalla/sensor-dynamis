@@ -84,7 +84,9 @@ function WhyItMattersSection() {
 
   const BlogCard = (item: (typeof blogData)[0]) => {
     return (
-      <Grid2 container spacing={2}>
+      <Grid2 container spacing={2} sx={{
+        display:"flex",
+      }}>
         <Grid2 size={{ xs: 12, md: 6 }}>
           <Image
             src={item.image}
@@ -93,6 +95,7 @@ function WhyItMattersSection() {
             height={200}
             style={{
               width: "100%",
+              height:"100%",
               objectFit: "cover",
               borderRadius: "12px",
             }}
