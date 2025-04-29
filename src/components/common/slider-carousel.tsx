@@ -123,4 +123,5 @@ const SlideCarousel = forwardRef<SlideCarouselRef, SlideCarouselProps>(
   }
 );
 
+SlideCarousel.displayName = "SlideCarousel";
 export default SlideCarousel;
