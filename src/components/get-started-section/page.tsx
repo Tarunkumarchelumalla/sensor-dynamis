@@ -1,10 +1,11 @@
 "use client";
 
-import { Box, Button, Grid2, Typography } from "@mui/material";
+import { Box, Button, Grid2, Modal, Typography } from "@mui/material";
 import React from "react";
 import SubText from "../Typography/sub-text";
 import Image from "next/image";
 import MainHeader from "../Typography/main-header";
+import Pricing from "../pricing/page";
 
 interface Int_solution_card {
   imageUrl: string;
@@ -13,17 +14,38 @@ interface Int_solution_card {
   subText: string;
 }
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 'calc(100% - 80px)',
+  bgcolor: 'background.paper',
+  height:'calc(100vh - 80px)',
+  borderRadius:'16px',
+  padding:'24px'
+
+};
+
 function GetStartedSection() {
+  const [open, setOpen] = React.useState(false);
 
   const scrollToDiv = () => {
     const targetDiv = document.getElementById("solutions");
-    console.log({targetDiv})
+    console.log({ targetDiv });
     if (targetDiv) {
       targetDiv.scrollIntoView({
         behavior: "smooth", // Smooth scroll
         block: "start", // Align to the start of the element
       });
     }
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
   };
 
   const solution1: Int_solution_card = {
@@ -64,6 +86,7 @@ function GetStartedSection() {
           flex: 1,
           borderRadius: "12px",
           justifyContent: "start",
+          height:"100%"
         }}
       >
         <Image src={data.imageUrl} width={58} height={58} alt={""}></Image>
@@ -83,27 +106,27 @@ function GetStartedSection() {
             sx={{
               cursor: "pointer",
             }}
-
-           onClick={scrollToDiv} 
+            onClick={handleOpen}
           >
             <SubText fontWeight={400} fontSize={{ xs: "14px", md: "20px" }}>
               Our Solutions
             </SubText>
-            <Box sx={{
-                        width: { xs: 24, md: 32 },
-                        height: { xs: 24, md: 32 },
-                        borderRadius: "8px",
-                        overflow: "hidden",
-                        flexShrink: 0,
-                        position: "relative", 
-                      }}>
-
-            <Image
-              src={"/product-section/right-yellow-arrow.svg"}
-              alt={""}
-              fill
-               sizes="(max-width: 600px) 28px, 32px"
-            ></Image>
+            <Box
+              sx={{
+                width: { xs: 24, md: 32 },
+                height: { xs: 24, md: 32 },
+                borderRadius: "8px",
+                overflow: "hidden",
+                flexShrink: 0,
+                position: "relative",
+              }}
+            >
+              <Image
+                src={"/product-section/right-yellow-arrow.svg"}
+                alt={""}
+                fill
+                sizes="(max-width: 600px) 28px, 32px"
+              ></Image>
             </Box>
           </Box>
         )}
@@ -112,6 +135,7 @@ function GetStartedSection() {
   };
 
   return (
+    <>
     <Box
       sx={{
         background: "var(--bg-primary-linear)",
@@ -133,7 +157,7 @@ function GetStartedSection() {
         justifyContent="space-between"
       >
         <Grid2 size={{ xs: 12, md: 8 }}>
-          <MainHeader>Proactive Forecasting</MainHeader>
+          <MainHeader>How it Works ?</MainHeader>
           <SubText
             marginTop={"12px"}
             fontSize={{ xs: "16px", md: "20px" }}
@@ -149,10 +173,8 @@ function GetStartedSection() {
           size={{ xs: 12, md: 4 }}
           display="flex"
           justifyContent={{ xs: "flex-start", md: "flex-end" }}
-          
         >
           <Button
-          
             sx={{
               background: "var(--white-color)",
               borderRadius: "8px",
@@ -161,7 +183,7 @@ function GetStartedSection() {
               fontWeight: 700,
               fontSize: "16px",
               textTransform: "none",
-              width:{ xs: '100%', md: 'fit-content' }
+              width: { xs: "100%", md: "fit-content" },
             }}
             endIcon={
               <Image
@@ -171,8 +193,6 @@ function GetStartedSection() {
                 height={24}
               />
             }
-          
-
           >
             Get Started
           </Button>
@@ -180,41 +200,31 @@ function GetStartedSection() {
       </Grid2>
 
       <Grid2 container spacing={2}>
-        <Grid2
-          size={{ xs: 12, md: 5 }}
-          display={{xs:'none',md:'flex'}}
-          sx={{
-            backgroundImage: "url(/get-started-section/flood-image.svg)",
-            position: "relative",
-            width: "100%",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            padding: "40px",
-            borderRadius: "16px",
-          }}
-        ></Grid2>
-        <Grid2 size={{ xs: 12, md: 7 }}>
-          <Grid2 container spacing={2}>
-            <Grid2
-              size={{ xs: 12, md: 6 }}
-              sx={{ display: "flex", flexDirection: "column" }}
-            >
-              <SolutionCard {...solution1} />
-            </Grid2>
+        <Grid2 size={{ xs: 12, md: 4 }}>
+          <SolutionCard {...solution1} />
+        </Grid2>
 
-            <Grid2
-              size={{ xs: 12, md: 6 }}
-              sx={{ display: "flex", flexDirection: "column" }}
-            >
-              <SolutionCard {...solution2} />
-            </Grid2>
+        <Grid2 size={{ xs: 12, md: 4 }}>
+          <SolutionCard {...solution2} />
+        </Grid2>
 
-            <SolutionCard {...solution3} />
-          </Grid2>
+        <Grid2 size={{ xs: 12, md: 4 }}>
+          <SolutionCard {...solution3} />
         </Grid2>
       </Grid2>
     </Box>
+    <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="parent-modal-title"
+        aria-describedby="parent-modal-description"
+      >
+        <Box sx={{...style,overflow:'auto' }}>
+        
+          <Pricing />
+        </Box>
+      </Modal>
+    </>
   );
 }
 

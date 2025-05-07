@@ -15,29 +15,44 @@ interface Int_content {
 function MidContent() {
   const content: Int_content[] = [
     {
-      imageUrl: "/mid-content/efficient.svg",
-      title: "Efficient Operations",
-      legend: "Accurate Forecasting, smarter decisions- everyone wins",
-      subtext:
-        "Utilise advanced analytics to accurately forecast events and optimize response strategies. Improve preparedness, resource allocation and operational efficiency.",
+      imageUrl: "/mid-content/enhance.svg ",
+      title: "Enhanced Safety",
+      legend: "Real-time insights, Instant action",
+      subtext: `
+Detect environmental threats with
+precision. Sensor Dynamis delivers
+instant alerts and predictive analytics—
+helping you protect communities,
+optimize operations, and safeguard
+critical infrastructure.`,
       order1: 1,
       order2: 2,
     },
     {
-      imageUrl: "/mid-content/enhance.svg ",
-      title: "Enhanced Safety",
-      legend: "Real-time insights, Instant action",
-      subtext:
-        "Quickly detect and respond to environmental threats with pinpoint accuracy. Our systems provide instant alerts when anomalies are detected as well as predictive analytics, safeguarding your community and resources as well as optimizing operations and monitoring infrastructure integrity.",
+      imageUrl: "/mid-content/efficient.svg",
+      title: "Efficient Operations",
+      legend: `Smarter forecasting. Better decisions.
+Stronger outcomes.`,
+      subtext: `
+Leverage advanced analytics to anticipate
+events and optimize responses—improving
+preparedness, resource use, and operational
+resilience across every scenario`,
       order1: 4,
       order2: 3,
     },
+
     {
       imageUrl: "/mid-content/betteroutcomes.svg",
       title: "Better Outcomes",
       legend: "Everyone Wins",
-      subtext:
-        "Unleash the Power of Prediction! Transform Uncertainty into Opportunity with Bold, Data-Driven Innovation, This is more than tech - it’s movement and you’re leading it",
+      subtext: `
+      Unleash the Power of Prediction
+      Turn uncertainty into opportunity with
+      bold, data-driven insight.
+      This isn’t just technology—it’s a
+      transformation.
+      And you’re at the forefront.`,
       order1: 5,
       order2: 6,
     },
@@ -53,9 +68,7 @@ function MidContent() {
         md: "80px",
       }}
     >
-      <MainHeader
-        textAlign={{ xs: "left", md: "center" }}
-      >
+      <MainHeader textAlign={{ xs: "left", md: "center" }}>
         Communities and businesses rely on data-driven water solutions that put
         them first.
       </MainHeader>

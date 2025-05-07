@@ -2,10 +2,51 @@
 
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SubText from "../Typography/sub-text";
+import gsap from "gsap";
+import { TextPlugin } from "gsap/TextPlugin";
+import SplitType from "split-type";
+
+gsap.registerPlugin(TextPlugin);
+const texts = ["Flood Preparedness", "Tsunami Awareness", "Operational Optimization", "Infrastructure Integrity"];
 
 function HeroSection() {
+  const textRef = useRef<any>(null);
+  const [index, setIndex] = useState(0);
+
+  
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % texts.length);
+    }, 2000); 
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const element = textRef.current;
+    if (!element) return;
+
+    element.textContent = texts[index];
+
+    const split = new SplitType(element, {
+      types: "chars",
+    });
+
+
+    gsap.from(split.chars, {
+      duration: 1,
+      x:100,
+      autoAlpha: 0,
+      ease: "power2.out",
+    });
+
+    return () => {
+      split.revert(); // Clean up spans
+    };
+  }, [index]);
   return (
     <>
       <Box
@@ -96,15 +137,19 @@ function HeroSection() {
             fontWeight={{ xs: 500, md: 600 }}
             textAlign={{ xs: "left", md: "center" }}
           >
-            Real-time Aqua Intelligence for optimal, data-driven decision-making
-            for{" "}
             <span className="text-[var(--highlight-color)]">
-              flood preparedness
+              Real-time Aqua Intelligence platform
             </span>
+            <br></br>
+            for optimal, data-driven decision-making leading to smarter, more
+            sustainable strategies for
           </Box>
-          <SubText fontSize={{xs:'16px',md:'20px'}} fontWeight={400}>
-            Leverage AI-powered environmental intelligence for smarter, more
-            sustainable decisions.
+          <SubText
+            fontSize={{ xs: "16px", md: "20px" }}
+            fontWeight={400}
+            ref={textRef}
+          >
+            {texts[index]}
           </SubText>
 
           <Box
@@ -205,8 +250,8 @@ function HeroSection() {
             alignItems: "center",
             gap: "24px",
             maxWidth: "454px",
-            background:'#F6F9FF80',
-            padding:'20px'
+            background: "#F6F9FF80",
+            padding: "20px",
           }}
         >
           <Box>
@@ -224,33 +269,46 @@ function HeroSection() {
               justifyContent: "center",
               alignItems: "center",
               flexDirection: "column",
-              
             }}
-            width={{xs:'284px',md:'100%'}}
+            width={{ xs: "284px", md: "100%" }}
           >
             <Box sx={{ fontSize: "24px", fontWeight: 700 }}>Lock Content</Box>
-            <SubText fontSize={ "16px"} fontWeight={ 400}textAlign={'center'}  >
+            <SubText fontSize={"16px"} fontWeight={400} textAlign={"center"}>
               Access real-time data. Request permission to explore.
             </SubText>
 
             <Box>
-              <Button startIcon={<Image src={"/hero-section/stars.svg"} alt={""} width={18} height={17}></Image>} sx={{
-                color:'var(--white-color)',
-                background:'var(--primary-color)',
-                borderRadius:'8px',
-                textTransform:'none',
-                padding:'12px 16px'
-              }}>
+              <Button
+                startIcon={
+                  <Image
+                    src={"/hero-section/stars.svg"}
+                    alt={""}
+                    width={18}
+                    height={17}
+                  ></Image>
+                }
+                sx={{
+                  color: "var(--white-color)",
+                  background: "var(--primary-color)",
+                  borderRadius: "8px",
+                  textTransform: "none",
+                  padding: "12px 16px",
+                }}
+              >
                 Upgrade to Unlock
               </Button>
             </Box>
-              <Box display={'flex'} flexDirection={'row'} gap={'4px'}>
-              <SubText fontSize={'16px'} textAlign={'center'}>
-              Learn more about premium feature
+            <Box display={"flex"} flexDirection={"row"} gap={"4px"}>
+              <SubText fontSize={"16px"} textAlign={"center"}>
+                Learn more about premium feature
               </SubText>
-              <Image src={"/hero-section/arrow-black-45.svg"} width={24} height={24}  alt=""></Image>
-              </Box>
-
+              <Image
+                src={"/hero-section/arrow-black-45.svg"}
+                width={24}
+                height={24}
+                alt=""
+              ></Image>
+            </Box>
           </Box>
         </Box>
       </Box>

@@ -8,7 +8,6 @@ module.exports = {
   },
   plugins: [
     require("tailwindcss-animate"), // Already present
-	require("tailwind-scrollbar-hide"),
   ],
 }
 
