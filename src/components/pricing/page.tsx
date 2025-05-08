@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
 import SubText from "../Typography/sub-text";
 import Image from "next/image";
