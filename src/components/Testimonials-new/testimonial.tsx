@@ -11,19 +11,19 @@ function Testimonials() {
       src: "/testimonials/ikaria_island.svg",
       title: "Island of Ikaria",
       subText:
-        "Real-time insights from Dynamis enabled swift, targeted responses on Ikaria Island. Precise flood and tsunami warnings facilitated timely evacuations, significantly reducing risk and protecting both residents and infrastructure.",
+        `Real-time insights from Dynamis enabled swift, targeted responses on Ikaria Island. Precise flood and tsunami warnings facilitated timely evacuations, significantly reducing risk and protecting both residents and infrastructure.`,
     },
     {
       src: "/testimonials/forti.svg",
       title: "Port Fund of Porto Rafti ",
       subText:
-        "Dynamis’ Aqua Wave Insights revolutionized operations at Porto Rafti, delivering accurate, real-time wave data. Enhanced safety, optimized efficiency, and regulatory compliance boosted confidence across port operations.",
+        `Dynamis’ Aqua Wave Insights revolutionized operations at Porto Rafti, delivering accurate, real-time wave data. Enhanced safety, optimized efficiency, and regulatory compliance boosted confidence across port operations.`,
     },
     {
       src: "/testimonials/chip.svg",
       title: "The Power of Now",
       subText:
-        "Real-time environmental intelligence empowers rapid, informed decision-making. Dynamis leverages advanced AI analytics to proactively manage climate risks, promoting resilience and sustainable resource management.",
+        `Real-time environmental intelligence empowers rapid, informed decision-making. Dynamis leverages advanced AI analytics to proactively manage climate risks, promoting resilience and sustainable resource management.`,
     },
   ];
 
@@ -120,12 +120,12 @@ function Testimonials() {
         <Chip title="Testimonials" color={"var(--white-color)"}></Chip>
 
         <MainHeader>
-          Trusted by Global Organisation's & Local Authorities
+          {`Trusted by Global Organisation's & Local Authorities`}
         </MainHeader>
         <SubText>
-          Leading organizations, governments and local authorities use the
+          {`Leading organizations, governments and local authorities use the
           Dynamis platform to support daily operations, develop preventive
-          maintenance programs, guide long-term strategies.
+          maintenance programs, guide long-term strategies.`}
         </SubText>
       </Box>
 
