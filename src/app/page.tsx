@@ -1,7 +1,8 @@
 import GetStartedSection from "@/components/get-started-section/page";
 import HeroSection from "@/components/hero-section/page";
 import MidContent from "@/components/mid-content/page";
-import Pricing from "@/components/pricing/page";
+import Pricing from "@/components/pricing-comparison/page";
+
 import ProductSection from "@/components/products-section/page";
 import Testimonials from "@/components/Testimonials-new/testimonial";
 

@@ -6,83 +6,102 @@ import MainHeader from "../Typography/main-header";
 
 function VideoSection() {
   const videoData = [
-    {
-      src: "https://www.youtube.com/embed/ES7eKWRRJ0o?si=yG5jHUCdz2qgt2fF",
-      title: "Island of Ikaria",
+  {
+      src:"https://www.youtube.com/embed/ecHNTGkTvpo?si=qQEZW0-9isSttLIy",
+      title: "World Water Day",
       subText:
-        "Real-time insights from Dynamis enabled swift, targeted responses on Ikaria Island. Precise flood and tsunami warnings facilitated timely evacuations, significantly reducing risk and protecting both residents and infrastructure.",
+        "World Water Day falls on Mar 22. It is marked every year by the United Nations (UN) and the world to inspire positive ripple effects to tackle the global water crisis. The theme this year, amid growing concerns over wars, is “Water for Peace”. ",
     },
     {
-      src: "https://www.youtube.com/embed/JtKbKALrejE?si=9oOh4Vzww3ULKudu",
-      title: "Port Fund of Porto Rafti ",
+      src:"https://www.youtube.com/embed/cl4Uv9_7KJE?si=Zn6_2-ZDXhjDz4xp",
+      title: "Fleeing climate change ",
       subText:
-        "Dynamis’ Aqua Wave Insights revolutionized operations at Porto Rafti, delivering accurate, real-time wave data. Enhanced safety, optimized efficiency, and regulatory compliance boosted confidence across port operations.",
+        "Lake Chad in the Sahel zone has already shrunk by 90 percent since the 1960s due to the increasing heat. About 40 million people will be forced to migrate to places where there is enough rainfall.",
     },
+    
     {
-      src: "https://www.youtube.com/embed/JtKbKALrejE?si=9oOh4Vzww3ULKudu",
-      title: "The Power of Now",
+      src:"https://www.youtube.com/embed/MlS6QGFccnI?si=e_nwQ5YomsuGphIR",
+      title: " Climate Edition - Extreme Weather",
       subText:
-        "Real-time environmental intelligence empowers rapid, informed decision-making. Dynamis leverages advanced AI analytics to proactively manage climate risks, promoting resilience and sustainable resource management.",
+        "As Earth’s climate changes, we’re seeing shifts in the intensity of events such as record-breaking heat waves, severe floods, prolonged droughts, devastating wildfires, and stronger hurricanes",
     },
   ];
 
-  const VideoCard = (itemData: (typeof videoData)[0]) => {
-    return (
+const VideoCard = (itemData: (typeof videoData)[0]) => {
+  return (
+    <Box
+      sx={{
+        borderRadius: "8px",
+        background: "var(--secondary-color)",
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        height: "100%", // Allow it to expand in parent grid
+        maxHeight: "600px", // Optional: set a max
+        overflow: "hidden",
+      }}
+    >
       <Box
         sx={{
-          borderRadius: "8px",
-          background: "var(--secondary-color)",
-          border: "none",
+          width: "100%",
+          aspectRatio: "16/9", // Responsive and consistent video height
         }}
       >
         <iframe
           width="100%"
-          height="280px"
+          height="100%"
           src={itemData.src}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
-          style={{ borderTopLeftRadius: "8px", borderTopRightRadius: "8px" }}
-        ></iframe>
-        <Box
-          padding={"12px"}
-          border={"1px solid #FFFFFF1A"}
-          sx={{
-            borderBottomLeftRadius: "8px",
-            borderBottomRightRadius: "8px",
+          style={{
+            borderTopLeftRadius: "8px",
+            borderTopRightRadius: "8px",
+            width: "100%",
+            height: "100%",
           }}
-        >
+        ></iframe>
+      </Box>
+
+      <Box
+        sx={{
+          border: "1px solid #FFFFFF1A",
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          borderBottomLeftRadius: "8px",
+          borderBottomRightRadius: "8px",
+          padding: "12px",
+        }}
+      >
+        <Box>
           <Typography fontWeight={600} fontSize={{ xs: "16px", md: "24px" }}>
             {itemData.title}
           </Typography>
           <SubText fontSize={{ xs: "14px", md: "16px" }} marginTop={"16px"}>
             {itemData.subText}
           </SubText>
-
-          <Box
-            display={"flex"}
-            flexDirection={"row"}
-            marginTop={"16px"}
-            gap={"8px"}
-            sx={{
-              cursor: "pointer",
-            }}
-          >
-            <SubText >
-              View More
-            </SubText>
-            <Image
-              src={"/testimonials/right-arrow-selected.svg"}
-              alt={""}
-              height={14}
-              width={14}
-            ></Image>
-          </Box>
+        </Box>
+        <Box
+          display={"flex"}
+          flexDirection={"row"}
+          gap={"8px"}
+          sx={{ cursor: "pointer", marginTop: "16px" }}
+        >
+          <SubText>View More</SubText>
+          <Image
+            src={"/testimonials/right-arrow-selected.svg"}
+            alt=""
+            height={14}
+            width={14}
+          />
         </Box>
       </Box>
-    );
-  };
+    </Box>
+  );
+};
 
   return (
     <Box
@@ -106,9 +125,7 @@ function VideoSection() {
           },
         }}
       >
-        <MainHeader >
-          Real-World Climate Change Impact Stories
-        </MainHeader>
+        <MainHeader>Real-World Climate Change Impact Stories</MainHeader>
         <SubText>
           See how real-time data helps communities tackle floods, tsunamis, and
           climate risks for a safer future.
@@ -117,7 +134,7 @@ function VideoSection() {
 
       <Grid2 container marginTop={"40px"} spacing={4}>
         {videoData.map((el, index) => (
-          <Grid2 size={{ xs: 12, md: 4 }} key={index}>
+          <Grid2 size={{ xs: 12, md: 4 }} key={index} sx={{ display: "flex" }}>
             <VideoCard {...el} />
           </Grid2>
         ))}
