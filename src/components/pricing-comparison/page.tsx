@@ -39,7 +39,7 @@ const tableData = [
     feature: "Long-term autonomy (no power/signal)",
     sensorDynamis: "✅ 6+ months, even submerged",
     traditional: "❌ Requires external power or battery replacement",
-    dashboardOnly: "❌",
+    dashboardOnly: "N/A",
   },
   {
     feature: "AI-driven anomaly detection & trends",
