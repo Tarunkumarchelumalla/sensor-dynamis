@@ -53,9 +53,9 @@ const tabsList: any = {
 };
 
 function TabSection({ name }: { name: string }) {
-  const [value, setValue] = React.useState(tabsList[name][0][name]);
+  const [value, setValue] = React.useState(name);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
