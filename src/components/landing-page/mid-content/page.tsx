@@ -1,7 +1,7 @@
+import MainHeader from "@/components/common/Typography/main-header";
+import SubText from "@/components/common/Typography/sub-text";
 import { Box, Grid2, Typography } from "@mui/material";
 import React from "react";
-import SubText from "../Typography/sub-text";
-import MainHeader from "../Typography/main-header";
 
 interface Int_content {
   imageUrl: string;
@@ -15,7 +15,7 @@ interface Int_content {
 function MidContent() {
   const content: Int_content[] = [
     {
-      imageUrl: "/mid-content/enhance.svg ",
+      imageUrl: "/landing-page/mid-content/enhance.svg ",
       title: "Enhanced Safety",
       legend: "Real-time insights, Instant action",
       subtext: `
@@ -29,7 +29,7 @@ critical infrastructure.`,
       order2: 2,
     },
     {
-      imageUrl: "/mid-content/efficient.svg",
+      imageUrl: "/landing-page/mid-content/efficient.svg",
       title: "Efficient Operations",
       legend: `Smarter forecasting. Better decisions.
 Stronger outcomes.`,
@@ -43,7 +43,7 @@ resilience across every scenario`,
     },
 
     {
-      imageUrl: "/mid-content/betteroutcomes.svg",
+      imageUrl: "/landing-page/mid-content/betteroutcomes.svg",
       title: "Better Outcomes",
       legend: "Everyone Wins",
       subtext: `

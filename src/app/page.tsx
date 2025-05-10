@@ -1,13 +1,12 @@
-import GetStartedSection from "@/components/get-started-section/page";
-import HeroSection from "@/components/hero-section/page";
-import MidContent from "@/components/mid-content/page";
-import Pricing from "@/components/pricing-comparison/page";
+import GetStartedSection from "@/components/landing-page/get-started-section/page";
+import HeroSection from "@/components/landing-page/hero-section/page";
+import MidContent from "@/components/landing-page/mid-content/page";
+import Pricing from "@/components/landing-page/pricing/page";
+import ProductSection from "@/components/landing-page/products-section/page";
+import Testimonials from "@/components/landing-page/Testimonials-new/testimonial";
+import VideoSection from "@/components/landing-page/video-content-section/page";
+import WhyItMattersSection from "@/components/landing-page/why-it-matters-section/page";
 
-import ProductSection from "@/components/products-section/page";
-import Testimonials from "@/components/Testimonials-new/testimonial";
-
-import VideoSection from "@/components/video-content-section/page";
-import WhyItMattersSection from "@/components/why-it-matters-section/page";
 
 export default function Home() {
 

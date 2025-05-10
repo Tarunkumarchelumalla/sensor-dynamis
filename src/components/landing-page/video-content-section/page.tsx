@@ -1,8 +1,9 @@
 import { Box, Grid2, Typography } from "@mui/material";
 import React from "react";
-import SubText from "../Typography/sub-text";
 import Image from "next/image";
-import MainHeader from "../Typography/main-header";
+import MainHeader from "@/components/common/Typography/main-header";
+import SubText from "@/components/common/Typography/sub-text";
+
 
 function VideoSection() {
   const videoData = [
@@ -92,7 +93,7 @@ const VideoCard = (itemData: (typeof videoData)[0]) => {
         >
           <SubText>View More</SubText>
           <Image
-            src={"/testimonials/right-arrow-selected.svg"}
+            src={"/landing-page/testimonials/right-arrow-selected.svg"}
             alt=""
             height={14}
             width={14}

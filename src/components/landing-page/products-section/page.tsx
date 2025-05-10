@@ -12,9 +12,9 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import SubText from "../Typography/sub-text";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MainHeader from "../Typography/main-header";
+import MainHeader from "@/components/common/Typography/main-header";
+import SubText from "@/components/common/Typography/sub-text";
 
 const productData = [
   {
@@ -25,7 +25,7 @@ It enables early flood alerts, water scarcity detection, and smarter decisions.
 Built for resilience and ready to scale.
 Empowering governments and communities to manage water responsibly.`,
     xsImage: "/afas-secondary-logo.svg",
-    image: "/product-section/afas.svg",
+    image: "/landing-page/product-section/afas.svg",
     buttons: [
       { title: "AFAS", link: "/" },
       { title: "AFAS(PRO)", link: "/" },
@@ -38,7 +38,7 @@ Empowering governments and communities to manage water responsibly.`,
 ensuring coastal communities and authorities have the critical time needed to act before disaster
 strikes. ATAS integrates predictive modeling, anomaly detection, and real-time monitoring to enhance
 situational awareness and preparedness.`,
-    image: "/product-section/atas.svg",
+    image: "/landing-page/product-section/atas.svg",
     xsImage: "/atas-secondary-logo.svg",
     buttons: [
       { title: "ATAS", link: "/" },
@@ -51,7 +51,7 @@ situational awareness and preparedness.`,
     description: `In the rapidly evolving fields of port management and wave energy production, operational efficiency and
 safety are paramount. AWI is specifically designed to provide critical real-time data and alerts,
 enhancing both safety and productivity while enabling accurate validation.`,
-    image: "/product-section/awi.svg",
+    image: "/landing-page/product-section/awi.svg",
     xsImage: "/awi-secondary-logo.svg",
     buttons: [
       { title: "AWI", link: "/" },
@@ -60,17 +60,17 @@ enhancing both safety and productivity while enabling accurate validation.`,
 ];
 
 const afasImage = [
-  "/product-section/afas_image_1.svg",
-  "/product-section/afas_image_2.svg",
+  "/landing-page/product-section/afas_image_1.svg",
+  "/landing-page/product-section/afas_image_2.svg",
 ];
 const atasImage = [
-  "/product-section/atas_image_1.svg",
-  "/product-section/atas_image_2.svg",
+  "/landing-page/product-section/atas_image_1.svg",
+  "/landing-page/product-section/atas_image_2.svg",
 ];
 const awiImage = [
-  "/product-section/awi_image_1.svg",
-  "/product-section/awi_image_2.svg",
-  "/product-section/awi_image_3.svg",
+  "/landing-page/product-section/awi_image_1.svg",
+  "/landing-page/product-section/awi_image_2.svg",
+  "/landing-page/product-section/awi_image_3.svg",
 ];
 
 const CardComponent = (item: (typeof productData)[0]) => {
@@ -86,7 +86,7 @@ const CardComponent = (item: (typeof productData)[0]) => {
       imageSrc = awiImage[0];
       break;
     default:
-      imageSrc = "/product-section/product.svg";
+      imageSrc = "/landing-page/product-section/product.svg";
   }
 
   return (
@@ -319,7 +319,7 @@ function ProductSection() {
                 View More
               </SubText>
               <Image
-                src={"/product-section/right-yellow-arrow.svg"}
+                src={"/landing-page/product-section/right-yellow-arrow.svg"}
                 alt=""
                 height={32}
                 width={32}

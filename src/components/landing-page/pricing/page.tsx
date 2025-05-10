@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import React from "react";
-import SubText from "../Typography/sub-text";
 import Image from "next/image";
-import MainHeader from "../Typography/main-header";
+import MainHeader from "@/components/common/Typography/main-header";
+import SubText from "@/components/common/Typography/sub-text";
 
 function Pricing() {
   const sectionHeaders = [
@@ -190,9 +190,10 @@ function Pricing() {
             alignItems: "center",
           }}
         >
-          <Image src="/Check icon.svg" alt="" height={24} width={24} />
+          <Image src="/check-icon.svg" alt="" height={24} width={24} />
         </Box>
       );
+
     }
     return (
       <SubText fontWeight={400} fontSize="14px" color="var(--black-color)">

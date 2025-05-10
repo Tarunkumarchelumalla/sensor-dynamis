@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { Box } from "@mui/material";
-import SubText from "../Typography/sub-text";
-import MainHeader from "../Typography/main-header";
+import MainHeader from "@/components/common/Typography/main-header";
+import SubText from "@/components/common/Typography/sub-text";
 
 const sectionHeaders = [
   "Features",

@@ -3,10 +3,10 @@
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import SubText from "../Typography/sub-text";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import SplitType from "split-type";
+import SubText from "@/components/common/Typography/sub-text";
 
 gsap.registerPlugin(TextPlugin);
 const texts = ["Flood Preparedness", "Tsunami Awareness", "Operational Optimization", "Infrastructure Integrity"];
@@ -163,7 +163,7 @@ function HeroSection() {
             <Button
               startIcon={
                 <Image
-                  src={"/hero-section/play.svg"}
+                  src={"/landing-page/hero-section/play.svg"}
                   alt={""}
                   width={18}
                   height={18}
@@ -196,7 +196,7 @@ function HeroSection() {
 
           <Box display={{ xs: "flex", md: "none" }}>
             <Image
-              src={"/hero-section/hero-content.svg"}
+              src={"/landing-page/hero-section/hero-content.svg"}
               width={1102}
               height={13}
               alt={""}
@@ -210,7 +210,7 @@ function HeroSection() {
             }}
           >
             <Image
-              src={"/hero-section/hero-content.svg"}
+              src={"/landing-page/hero-section/hero-content.svg"}
               width={1102}
               height={13}
               alt={""}
@@ -231,7 +231,7 @@ function HeroSection() {
         }}
       >
         <Image
-          src="/hero-section/map.svg"
+          src="/landing-page/hero-section/map.svg"
           alt=""
           fill
           style={{ objectFit: "cover" }}
@@ -256,7 +256,7 @@ function HeroSection() {
         >
           <Box>
             <Image
-              src={"/hero-section/lock.svg"}
+              src={"/landing-page/hero-section/lock.svg"}
               alt={""}
               width={100}
               height={100}
@@ -281,7 +281,7 @@ function HeroSection() {
               <Button
                 startIcon={
                   <Image
-                    src={"/hero-section/stars.svg"}
+                    src={"/landing-page/hero-section/stars.svg"}
                     alt={""}
                     width={18}
                     height={17}
@@ -303,7 +303,7 @@ function HeroSection() {
                 Learn more about premium feature
               </SubText>
               <Image
-                src={"/hero-section/arrow-black-45.svg"}
+                src={"/landing-page/hero-section/arrow-black-45.svg"}
                 width={24}
                 height={24}
                 alt=""

@@ -1,26 +1,27 @@
 import { Box, Grid2, Typography } from "@mui/material";
 import React from "react";
-import SubText from "../Typography/sub-text";
 import Image from "next/image";
-import MainHeader from "../Typography/main-header";
-import Chip from "../common/custom-chip";
+import MainHeader from "@/components/common/Typography/main-header";
+import SubText from "@/components/common/Typography/sub-text";
+import Chip from "@/components/common/custom-chip";
+
 
 function Testimonials() {
   const ImageData = [
     {
-      src: "/testimonials/ikaria_island.svg",
+      src: "/landing-page/testimonials/ikaria_island.svg",
       title: "Island of Ikaria",
       subText:
         `Real-time insights from Dynamis enabled swift, targeted responses on Ikaria Island. Precise flood and tsunami warnings facilitated timely evacuations, significantly reducing risk and protecting both residents and infrastructure.`,
     },
     {
-      src: "/testimonials/forti.svg",
+      src: "/landing-page/testimonials/forti.svg",
       title: "Port Fund of Porto Rafti ",
       subText:
         `Dynamis’ Aqua Wave Insights revolutionized operations at Porto Rafti, delivering accurate, real-time wave data. Enhanced safety, optimized efficiency, and regulatory compliance boosted confidence across port operations.`,
     },
     {
-      src: "/testimonials/chip.svg",
+      src: "/landing-page/testimonials/chip.svg",
       title: "The Power of Now",
       subText:
         `Real-time environmental intelligence empowers rapid, informed decision-making. Dynamis leverages advanced AI analytics to proactively manage climate risks, promoting resilience and sustainable resource management.`,
@@ -84,7 +85,7 @@ function Testimonials() {
           >
             <SubText>View More</SubText>
             <Image
-              src={"/testimonials/right-arrow-selected.svg"}
+              src={"/landing-page/testimonials/right-arrow-selected.svg"}
               alt={""}
               height={14}
               width={14}

@@ -2,10 +2,10 @@
 
 import { Box, Button, Grid2, Modal, Typography } from "@mui/material";
 import React from "react";
-import SubText from "../Typography/sub-text";
 import Image from "next/image";
-import MainHeader from "../Typography/main-header";
 import Pricing from "../pricing/page";
+import MainHeader from "@/components/common/Typography/main-header";
+import SubText from "@/components/common/Typography/sub-text";
 
 interface Int_solution_card {
   imageUrl: string;
@@ -49,7 +49,7 @@ function GetStartedSection() {
   };
 
   const solution1: Int_solution_card = {
-    imageUrl: "/get-started-section/number1.svg",
+    imageUrl: "/landing-page/get-started-section/number1.svg",
     isButton: true,
     title: "Choose your Solution",
     subText:
@@ -57,7 +57,7 @@ function GetStartedSection() {
   };
 
   const solution2: Int_solution_card = {
-    imageUrl: "/get-started-section/number2.svg",
+    imageUrl: "/landing-page/get-started-section/number2.svg",
     isButton: false,
     title: "Sensor & Analytics",
     subText:
@@ -65,7 +65,7 @@ function GetStartedSection() {
   };
 
   const solution3: Int_solution_card = {
-    imageUrl: "/get-started-section/number3.svg",
+    imageUrl: "/landing-page/get-started-section/number3.svg",
     isButton: false,
     title: "Stay Protected",
     subText:
@@ -122,7 +122,7 @@ function GetStartedSection() {
               }}
             >
               <Image
-                src={"/product-section/right-yellow-arrow.svg"}
+                src={"/landing-page/product-section/right-yellow-arrow.svg"}
                 alt={""}
                 fill
                 sizes="(max-width: 600px) 28px, 32px"
@@ -187,7 +187,7 @@ function GetStartedSection() {
             }}
             endIcon={
               <Image
-                src={"/get-started-section/right-black-arrow.svg"}
+                src={"/landing-page/get-started-section/right-black-arrow.svg"}
                 alt=""
                 width={24}
                 height={24}

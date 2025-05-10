@@ -2,12 +2,10 @@
 
 import { Box, Grid2, IconButton, Typography, useMediaQuery } from "@mui/material";
 import React, { useRef, useState } from "react";
-import SlideCarousel, {
-  Int_Slide,
-  SlideCarouselRef,
-} from "../common/slider-carousel";
-import SubText from "../Typography/sub-text";
+
 import Image from "next/image";
+import SlideCarousel, { Int_Slide, SlideCarouselRef } from "@/components/common/slider-carousel";
+import SubText from "@/components/common/Typography/sub-text";
 
 function Testimonials() {
 
@@ -120,14 +118,14 @@ function Testimonials() {
   const [selected, setSelected] = useState<"left" | "right">("left");
   const slides: Int_Slide[] = [
     {
-      src: "/testimonials/islandikaria.svg",
+      src: "/landing-page/testimonials/islandikaria.svg",
       caption:
         "Real-time insights from Dynamis enabled swift, targeted responses on Ikaria Island. Precise flood and tsunami warnings facilitated timely evacuations, significantly reducing risk and protecting both residents and infrastructure.",
       title: "Island of Ikaria",
       author: "— Municipal Water Authority, Ikaria",
     },
     {
-      src: "/testimonials/islandikaria.svg",
+      src: "/landing-page/testimonials/islandikaria.svg",
       caption:
         "AWI has revolutionized our harbour operations with real-time insights on wave height, direction, and sea conditions. We've seen fewer delays, improved safety, and greater efficiency. It’s a game-changer for informed, timely decisions and optimized port activity.",
       title: "Port Fund of Porto Rafti",
@@ -199,8 +197,8 @@ function Testimonials() {
               <Image
                 src={
                   selected === "left"
-                    ? "/testimonials/left-arrow-selected.svg"
-                    : "/testimonials/left-arrow.svg"
+                    ? "/landing-page/testimonials/left-arrow-selected.svg"
+                    : "/landing-page/testimonials/left-arrow.svg"
                 }
                 alt="Left Arrow"
                 width={16}
@@ -230,8 +228,8 @@ function Testimonials() {
               <Image
                 src={
                   selected === "right"
-                    ? "/testimonials/right-arrow-selected.svg"
-                    : "/testimonials/right-arrow.svg"
+                    ? "/landing-page/testimonials/right-arrow-selected.svg"
+                    : "/landing-page/testimonials/right-arrow.svg"
                 }
                 alt="Right Arrow"
                 width={16}

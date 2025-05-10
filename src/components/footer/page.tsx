@@ -13,7 +13,7 @@ import Grid from "@mui/material/Grid2";
 import Image from "next/image";
 
 import { useRouter } from "next/navigation";
-import SubText from "../Typography/sub-text";
+import SubText from "../common/Typography/sub-text";
 
 
 const Applications = [

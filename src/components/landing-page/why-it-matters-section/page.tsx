@@ -1,20 +1,21 @@
+import MainHeader from "@/components/common/Typography/main-header";
+import SubHeader from "@/components/common/Typography/sub-header";
+import SubText from "@/components/common/Typography/sub-text";
 import { Box, Grid2, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import SubHeader from "../Typography/sub-header";
-import SubText from "../Typography/sub-text";
-import MainHeader from "../Typography/main-header";
+
 
 function WhyItMattersSection() {
   const blogData = [
     {
-      image: "/last-content/blogImage2.svg",
+      image: "/landing-page/last-content/blogImage2.svg",
       title: "Early Warning Systems (EWS)",
       subtext:
         "Many Early Warning Systems (EWS) fall short due to their inability to measure and analyze real-time water dynamics. Since disasters like floods, tsunamis, and dam failures are driven by change",
     },
     {
-      image: "/last-content/blogImage3.svg",
+      image: "/landing-page/last-content/blogImage3.svg",
       title: "Real-time environmental intelligence",
       subtext:
         "Real-time monitoring of water levels and flow dynamics enables early flood and tsunami detection, protects critical infrastructure, and improves forecasting",
@@ -31,7 +32,7 @@ function WhyItMattersSection() {
         }}
       >
         <Image
-          src={"/last-content/blogImage1.svg"}
+          src={"/landing-page/last-content/blogImage1.svg"}
           alt={""}
           width={624}
           height={200}
@@ -71,7 +72,7 @@ function WhyItMattersSection() {
           >
             <SubText>View More</SubText>
             <Image
-              src={"/testimonials/right-arrow.svg"}
+              src={"/landing-page/testimonials/right-arrow.svg"}
               alt={""}
               height={14}
               width={14}
@@ -115,7 +116,7 @@ function WhyItMattersSection() {
           >
             <SubText>View More</SubText>
             <Image
-              src={"/testimonials/right-arrow.svg"}
+              src={"/landing-page/testimonials/right-arrow.svg"}
               alt={""}
               height={14}
               width={14}
