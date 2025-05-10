@@ -6,7 +6,7 @@ import Image from "next/image";
 
 
 export default async function ProductPage({ params }: any) {
-  const { name } = params;
+  const { name } = await params;
 
   return (
     <Box>
