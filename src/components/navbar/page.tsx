@@ -8,9 +8,6 @@ import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { Menu, MenuItem, Typography } from "@mui/material";
 
-
-const pagesWithLinks = ["Products", "About", "Contact", "Blog"];
-
 const productsData = [
   {
     title: "AFAS",
@@ -20,7 +17,7 @@ const productsData = [
   },
   {
     title: "AFAS(PRO)",
-    link: "/products/afas",
+    link: "/products/afas-pro",
     subText: "Monitor your metrics",
     icon: "/blue-afas.svg",
   },
@@ -32,7 +29,7 @@ const productsData = [
   },
   {
     title: "ATAS (PRO)",
-    link: "/products/afas",
+    link: "/products/atas-pro",
     subText: "Monitor your metrics",
     icon: "/blue-atas.svg",
   },
@@ -45,9 +42,11 @@ const productsData = [
 ];
 
 function ResponsiveAppBar() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
+  const router = useRouter();
+  const pathname = usePathname();
 
   const pages = [
     {
@@ -70,38 +69,23 @@ function ResponsiveAppBar() {
     setAnchorEl(null);
   };
 
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const handleMenuItemClick = (link: string) => {
-    router.push(link);
-    setIsMenuOpen(false);
-  };
-
-  const handleOpenNavMenu = () => {
-    setIsMenuOpen(true);
-  };
-
   const handleNavigation = (link: string) => {
     router.push(link);
   };
 
-  const handleRoute= (link:string)=>{
-    handleClose()
-    router.push(link)
-  }
+  const handleRoute = (link: string) => {
+    handleClose();
+    router.push(link);
+  };
 
   return (
     <Toolbar
       disableGutters
       sx={{
         height: "80px",
-        display: "flex",
         padding: "0px 120px",
         width: "100%",
-        flexDirection: "row",
         justifyContent: "space-between",
-        alignItems: "center",
         backgroundColor: "transparent",
       }}
     >
@@ -114,47 +98,38 @@ function ResponsiveAppBar() {
         style={{ objectFit: "contain", cursor: "pointer" }}
       />
 
-      {/* Desktop menu */}
-      <Box
-        sx={{
-          display: { xs: "none", md: "flex" },
-          justifyContent: "center",
-          gap: "25px",
-        }}
-      >
+      {/* Desktop Menu */}
+      <Box sx={{ display: { xs: "none", md: "flex" }, gap: "25px" }}>
         {pages.map((page) => {
-          const isActive = pathname === page.link;
+          const isActive =
+            page.name === "Products"
+              ? pathname.startsWith("/products")
+              : pathname === page.link;
 
           return (
             <Button
-              id="basic-button"
+              key={page.name}
               aria-controls={open ? "basic-menu" : undefined}
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
-              key={page.name}
-              component="a"
               onClick={(event) =>
                 page.onClick
                   ? page.onClick(event as any)
                   : handleNavigation(page.link)
               }
               sx={{
-                paddingBottom: "10px ",
+                paddingBottom: "10px",
                 color: isActive ? "var(--primary-color)" : "var(--dark-color)",
-                display: "flex",
-                alignItems: "center",
-                gap: "4px",
                 textTransform: "none",
                 fontSize: "16px",
                 position: "relative",
-                overflow: "hidden", // Needed for the after element
                 "&::after": {
                   content: '""',
                   position: "absolute",
                   bottom: 1,
                   left: 0,
                   height: "4px",
-                  width: "0%",
+                  width: isActive ? "100%" : "0%",
                   backgroundColor: "var(--highlight-color)",
                   transition: "width 0.3s ease",
                 },
@@ -163,25 +138,10 @@ function ResponsiveAppBar() {
                 },
               }}
               endIcon={
-                page.icon ? (
-                  <Box
-                    component="span"
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      marginLeft: "2px",
-                    }}
-                  >
-                    <Image
-                      src={page.icon || ""}
-                      alt=""
-                      width={12}
-                      height={6}
-                      style={{ display: "block" }}
-                    />
+                page.icon && (
+                  <Box sx={{ ml: "2px" }}>
+                    <Image src={page.icon} alt="" width={12} height={6} />
                   </Box>
-                ) : (
-                  <></>
                 )
               }
             >
@@ -191,6 +151,7 @@ function ResponsiveAppBar() {
         })}
       </Box>
 
+      {/* Dropdown Menu */}
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
@@ -200,72 +161,73 @@ function ResponsiveAppBar() {
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
-        container={
-          typeof window !== "undefined" ? () => window.document.body : undefined
-        }
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        transformOrigin={{ vertical: "top", horizontal: "left" }}
         PaperProps={{
           sx: {
             maxWidth: "278px",
-            overflow: "visible",
-            mt: 1.5, // margin top to fit the arrow
+            mt: 1.5,
+            borderRadius: "16px",
             boxShadow: "0px 4px 20px rgba(0,0,0,0.1)",
-            position: "relative",
             "&::before": {
               content: '""',
               position: "absolute",
               top: 0,
-              left: "24px", // Adjust based on your design
+              left: "24px",
               width: 12,
               height: 12,
-              backgroundColor: "white", // Menu background color
+              backgroundColor: "white",
               transform: "translateY(-50%) rotate(45deg)",
-              zIndex: 0,
               boxShadow: "-1px -1px 1px rgba(0,0,0,0.05)",
             },
-            borderRadius: "16px", // Rounded corners for menu
           },
         }}
       >
-        {productsData.map((item, index) => (
-          <MenuItem onClick={()=>handleRoute(item.link)} key={index}>
-            <Box
+        {productsData.map((item, index) => {
+          const isSelected = pathname === item.link;
+
+          return (
+            <MenuItem
+              key={index}
+              onClick={() => handleRoute(item.link)}
+              selected={isSelected}
               sx={{
-                display: "flex",
-                gap: "12px",
-                width: "100%",
-                alignItems: "center",
+                backgroundColor: isSelected ? "var(--highlight-color)" : "white",
+                borderRadius: "12px",
+                margin: "4px",
+                "&:hover": {
+                 
+                },
               }}
             >
-              <Image src={item.icon} alt={""} width={24} height={24}></Image>
-              <Box>
-                <Typography
-                  sx={{
-                    fontSize: "16px",
-                    fontWeight: "700",
-                  }}
-                >
-                  {" "}
-                  {item.title}
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "var(--text-light)",
-                  }}
-                >
-                  {item.subText}
-                </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: "12px",
+                  width: "100%",
+                  alignItems: "center",
+                }}
+              >
+                <Image src={item.icon} alt={""} width={24} height={24} />
+                <Box>
+                  <Typography
+                    sx={{
+                      fontSize: "16px",
+                      fontWeight: isSelected ? "800" : "700",
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                  <Typography
+                    sx={{ color: "var(--text-light)" }}
+                  >
+                    {item.subText}
+                  </Typography>
+                </Box>
               </Box>
-            </Box>
-          </MenuItem>
-        ))}
+            </MenuItem>
+          );
+        })}
       </Menu>
     </Toolbar>
   );

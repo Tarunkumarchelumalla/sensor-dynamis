@@ -1,5 +1,6 @@
 import MainHeader from "@/components/common/Typography/main-header";
 import SubText from "@/components/common/Typography/sub-text";
+import TabSection from "@/components/product-page/page";
 import { Box, Tab } from "@mui/material";
 import Image from "next/image";
 
@@ -11,7 +12,7 @@ export default async function ProductPage({ params }: any) {
   return (
     <Box>
 
-          <Box
+      <Box
         sx={{
         
           display: "flex",
@@ -46,7 +47,7 @@ export default async function ProductPage({ params }: any) {
           <SubText sx={{textAlign:'center'}} >{`The Advanced Flood Alert System (AFAS) provides localized real-time alerts 24/7, ensuring communities are prepared and protected. Designed to monitor river levels, dry riverbeds, and glacier lakes, AFAS enables authorities to detect early signs of potential flooding before disaster strikes.`}</SubText>
         </Box>
       </Box>
-        
+        <TabSection name={name}/>
     </Box>
   );
 }
