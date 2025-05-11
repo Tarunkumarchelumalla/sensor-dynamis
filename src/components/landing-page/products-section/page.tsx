@@ -15,6 +15,7 @@ import React, { useEffect, useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MainHeader from "@/components/common/Typography/main-header";
 import SubText from "@/components/common/Typography/sub-text";
+import { useRouter } from "next/navigation";
 
 const productData = [
   {
@@ -27,8 +28,8 @@ Empowering governments and communities to manage water responsibly.`,
     xsImage: "/afas-secondary-logo.svg",
     image: "/landing-page/product-section/afas.svg",
     buttons: [
-      { title: "AFAS", link: "/" },
-      { title: "AFAS(PRO)", link: "/" },
+      { title: "AFAS", link: "/products/afas" },
+      { title: "AFAS(PRO)", link: "/products/afas-pro" },
     ],
   },
   {
@@ -41,8 +42,8 @@ situational awareness and preparedness.`,
     image: "/landing-page/product-section/atas.svg",
     xsImage: "/atas-secondary-logo.svg",
     buttons: [
-      { title: "ATAS", link: "/" },
-      { title: "ATAS(PRO)", link: "/" },
+      { title: "ATAS", link: "/products/atas" },
+      { title: "ATAS(PRO)", link: "/products/atas-pro" },
     ],
   },
   {
@@ -54,7 +55,7 @@ enhancing both safety and productivity while enabling accurate validation.`,
     image: "/landing-page/product-section/awi.svg",
     xsImage: "/awi-secondary-logo.svg",
     buttons: [
-      { title: "AWI", link: "/" },
+      { title: "AWI", link: "/products/awi" },
     ],
   },
 ];
@@ -73,7 +74,16 @@ const awiImage = [
   "/landing-page/product-section/awi_image_3.svg",
 ];
 
-const CardComponent = (item: (typeof productData)[0]) => {
+
+
+
+
+function ProductSection() {
+  const [expanded, setExpanded] = useState<string>("afas");
+  const [index, setIndex] = useState(0);
+  const router  = useRouter()
+
+  const CardComponent = (item: (typeof productData)[0]) => {
   let imageSrc = "";
   switch (item.id) {
     case "afas":
@@ -88,6 +98,7 @@ const CardComponent = (item: (typeof productData)[0]) => {
     default:
       imageSrc = "/landing-page/product-section/product.svg";
   }
+
 
   return (
     <Box
@@ -139,10 +150,11 @@ const CardComponent = (item: (typeof productData)[0]) => {
   );
 };
 
-function ProductSection() {
-  const [expanded, setExpanded] = useState<string>("afas");
-  const [index, setIndex] = useState(0);
-
+  
+  const handleNavigation =(link:string)=>{
+    router.push(link)
+  }
+  
   const getBackgroundImages = () => {
     if (expanded === "atas") return atasImage;
     if (expanded === "awi") return awiImage;
@@ -256,7 +268,7 @@ function ProductSection() {
                 <AccordionDetails>{item.description}</AccordionDetails>
                 <AccordionActions>
                   {item.buttons.map((btn, i) => (
-                    <Button key={i}>{btn.title}</Button>
+                    <Button key={i} onClick={()=>handleNavigation(btn.link)}>{btn.title} </Button>
                   ))}
                 </AccordionActions>
               </Accordion>
