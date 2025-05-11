@@ -1,7 +1,8 @@
 import GetStartedSection from "@/components/landing-page/get-started-section/page";
 import HeroSection from "@/components/landing-page/hero-section/page";
 import MidContent from "@/components/landing-page/mid-content/page";
-import Pricing from "@/components/landing-page/pricing/page";
+import SolutionComparisonTable from "@/components/landing-page/pricing-comparison/page";
+
 import ProductSection from "@/components/landing-page/products-section/page";
 import Testimonials from "@/components/landing-page/Testimonials-new/testimonial";
 import VideoSection from "@/components/landing-page/video-content-section/page";
@@ -16,7 +17,7 @@ export default function Home() {
     <GetStartedSection/>
     <MidContent/>
     <Testimonials/>
-    <Pricing/>
+    <SolutionComparisonTable/>
     <VideoSection/>
     <WhyItMattersSection/>
     </>

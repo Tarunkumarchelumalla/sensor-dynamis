@@ -2,6 +2,8 @@
 
 import { Tabs, Tab } from "@mui/material";
 import React, { useEffect } from "react";
+import ProductDetail from "./product-detail-page/page";
+import { useRouter } from "next/navigation";
 
 const tabsList: any = {
   afas: [
@@ -54,50 +56,50 @@ const tabsList: any = {
 
 function TabSection({ name }: { name: string }) {
   const [value, setValue] = React.useState(name);
-
+  const router = useRouter();
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
+     router.push(newValue);
   };
 
-
   return (
-    <Tabs
-      value={value}
-      onChange={handleChange}
-      aria-label="centered tabs example"
-      centered
-      sx={{
-        height: "64px",
-        display: "flex",
-        alignItems: "center",
-        background: "var(--primary-dark-color)",
-        "& .MuiTab-root": {
-          color: "white",
-          height: "100%", // ✅ full height for tab
-          minHeight: "64px", // optional, to ensure consistency
+    <>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        aria-label="centered tabs example"
+        centered
+        sx={{
+          height: "64px",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
-          padding: "20px",
-          fontWeight: 600,
-        },
-        "& .Mui-selected": {
-          color: "var(--black-color) !important",
-          background: "var(--highlight-color)",
-        },
-        "& .MuiTabs-indicator": {
-          display: "none",
-        },
-      }}
-    >
-      {name &&
-        tabsList[name].map((item: any, index: number) => (
-          <Tab label={item.tabName} key={index} value={item.value}/>
-        ))}
-    </Tabs>
-
-
-
+          background: "var(--primary-dark-color)",
+          "& .MuiTab-root": {
+            color: "white",
+            height: "100%", // ✅ full height for tab
+            minHeight: "64px", // optional, to ensure consistency
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "20px",
+            fontWeight: 600,
+          },
+          "& .Mui-selected": {
+            color: "var(--black-color) !important",
+            background: "var(--highlight-color)",
+          },
+          "& .MuiTabs-indicator": {
+            display: "none",
+          },
+        }}
+      >
+        {name &&
+          tabsList[name].map((item: any, index: number) => (
+            <Tab label={item.tabName} key={index} value={item.value} />
+          ))}
+      </Tabs>
+      <ProductDetail name={value} />
+    </>
   );
 }
 
