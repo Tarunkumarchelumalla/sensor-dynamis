@@ -41,6 +41,7 @@ function HeroSection() {
       x:100,
       autoAlpha: 0,
       ease: "power2.out",
+      fontSize:'24px'
     });
 
     return () => {
@@ -145,7 +146,9 @@ function HeroSection() {
             sustainable strategies for
           </Box>
           <SubText
-            fontSize={{ xs: "16px", md: "20px" }}
+          sx={{
+            fontSize:{ xs: "18px", md: "24px" }
+          }}
             fontWeight={400}
             ref={textRef}
           >

@@ -47,7 +47,7 @@ resilience across every scenario`,
       title: "Better Outcomes",
       legend: "Everyone Wins",
       subtext: `
-      Unleash the Power of Prediction
+      Unleash the Power of Prediction.
       Turn uncertainty into opportunity with
       bold, data-driven insight.
       This isn’t just technology—it’s a
