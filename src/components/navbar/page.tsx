@@ -93,6 +93,7 @@ function ResponsiveAppBar() {
 
   const handleNavigation = (link: string) => {
     router.push(link);
+    setmobileAnchor(null)
   };
 
   const handleRoute = (link: string) => {
