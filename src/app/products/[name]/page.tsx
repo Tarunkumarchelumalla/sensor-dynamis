@@ -10,7 +10,7 @@ const bgImage: Record<string, string> = {
   "afas-pro": "/Product-page/afas.svg",
   atas: "/Product-page/atas_main.svg",
   "atas-pro": "/Product-page/atas_main.svg",
-  awi:'/Product-page/awi.svg'
+  awi: "/Product-page/awi.svg",
 };
 
 interface Int_product_heading {
@@ -83,9 +83,15 @@ export default async function ProductPage({ params }: any) {
             alignItems: "center",
             color: "var(--white-color)",
             maxWidth: "1280px",
+            padding: {
+              xs: "10px",
+              md: "40px",
+            },
           }}
         >
-          <MainHeader sx={{textAlign:'center'}}>{bgContent[name].title || ""}</MainHeader>
+          <MainHeader sx={{ textAlign: "center" }}>
+            {bgContent[name].title || ""}
+          </MainHeader>
           <SubText sx={{ textAlign: "center" }}>
             {bgContent[name].subText || ""}
           </SubText>
