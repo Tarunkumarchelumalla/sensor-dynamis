@@ -150,11 +150,11 @@ function ProductSection() {
   );
 };
 
-  
+
   const handleNavigation =(link:string)=>{
     router.push(link)
   }
-  
+
   const getBackgroundImages = () => {
     if (expanded === "atas") return atasImage;
     if (expanded === "awi") return awiImage;
