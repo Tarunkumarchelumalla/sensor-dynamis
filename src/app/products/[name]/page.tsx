@@ -85,7 +85,7 @@ export default async function ProductPage({ params }: any) {
             maxWidth: "1280px",
           }}
         >
-          <MainHeader>{bgContent[name].title || ""}</MainHeader>
+          <MainHeader sx={{textAlign:'center'}}>{bgContent[name].title || ""}</MainHeader>
           <SubText sx={{ textAlign: "center" }}>
             {bgContent[name].subText || ""}
           </SubText>
