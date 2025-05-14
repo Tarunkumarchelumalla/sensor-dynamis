@@ -41,7 +41,6 @@ function HeroSection() {
       x:100,
       autoAlpha: 0,
       ease: "power2.out",
-      fontSize:'24px'
     });
 
     return () => {
