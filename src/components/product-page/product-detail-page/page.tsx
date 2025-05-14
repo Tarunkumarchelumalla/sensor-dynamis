@@ -49,15 +49,15 @@ const productCardContent: any = {
       "Keeps citizens informed with timely alerts, improving safety and trust.",
   },
   "atas-pro": {
-    image1: "/landing-page/product-section/atas_image_1.svg", 
+    image1: "/landing-page/product-section/atas_image_1.svg",
     title1: "Advanced Propagation Analysis",
     content1:
       "Predicts tsunami direction, speed, and impact zones for better preparedness.",
-    image2: "/Product-page/analysis.svg", 
+    image2: "/Product-page/analysis.svg",
     title2: "Infrastructure Monitoring",
     content2:
       "Safeguards ports, seawalls, and coastal defenses with proactive alerts.",
-    image3: "/Product-page/atas_pro_1.svg", 
+    image3: "/Product-page/atas_pro_1.svg",
     title3: "Seamless Smart-City Integration",
     content3:
       "Connects with municipal platforms to streamline disaster response.",
@@ -697,7 +697,7 @@ function ProductDetail({ name }: { name: string }) {
           <Box
             sx={{
               padding: {
-                xs: "10px",
+                xs: "80px 10px",
                 md: "80px",
               },
             }}
@@ -738,8 +738,8 @@ function ProductDetail({ name }: { name: string }) {
         <Box
           sx={{
             padding: {
-              xs: "10px",
-              md: "40px 80px 80px 80px",
+              xs: "40px 10px",
+              md: "80px",
             },
             background: "var(--primary-light-color)",
           }}
@@ -753,7 +753,7 @@ function ProductDetail({ name }: { name: string }) {
         <Box
           sx={{
             padding: {
-              xs: "10px",
+              xs: "80px 10px",
               md: "80px",
             },
             background: "var(--bg-primary-linear)",
