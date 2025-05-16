@@ -48,7 +48,7 @@ function Testimonials() {
           height={100}
           style={{
             objectFit: "cover",
-            height: "280px",
+            maxHeight: "240px",
             width: "100%",
             borderTopLeftRadius: "8px",
             borderTopRightRadius: "8px",

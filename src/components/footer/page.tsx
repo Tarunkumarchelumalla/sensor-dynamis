@@ -5,9 +5,7 @@ import {
   Button,
   Divider,
   Grid2,
-  styled,
   TextField,
-  Typography,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import Image from "next/image";
@@ -16,13 +14,35 @@ import { useRouter } from "next/navigation";
 import SubText from "../common/Typography/sub-text";
 
 
-const Applications = [
-  "Advanced Flood Alert System - AFAS & AFAS Pro",
-  "Aqua-Wave Intelligence System - AWI",
-  "Advanced Tsunami Alert System - ATAS and ATAS Pro",
+const Applications:{
+  name:string,
+  link:string
+}[] = [
+  {
+    name:"Advanced Flood Alert System - AFAS & AFAS Pro",
+    link:"/products/afas"
+  }
+  ,
+  {
+
+    name:"Aqua-Wave Intelligence System - AWI",
+    link:"/products/awi"
+  },
+  {
+    name:"Advanced Tsunami Alert System - ATAS and ATAS Pro",
+    link:"/products/atas"
+   
+  }
 ];
 
-const QuickLinks =['About','Contact Us','Blog']
+const QuickLinks: {
+  name: string,
+  link: string
+}[] = [
+  { name: 'About', link: '/about' },
+  { name: 'Contact Us', link: '/contact' },
+  { name: 'Blog', link: '/blog' },
+]
 
 export default function Footer() {
   const router = useRouter();
@@ -35,7 +55,7 @@ export default function Footer() {
       minHeight: "450px",
       width: "100%",
       color: "var(--white-color)",}} padding={{xs:'24px',md:'80px'}}>
-      <Grid container spacing={2} display={'flex'} flexDirection={{xs:'column',md:'row'}} justifyContent={{md:'space-between'}}>
+      <Grid container spacing={2}>
         <Grid
           size={{ xs: 12, md: 4.5 }}
           sx={{
@@ -58,7 +78,7 @@ export default function Footer() {
               optimization across industries.
             </SubText>
           </Box>
-          <SubText fontSize={"14px"} marginTop={{xs:'32px',md:'0px'}}>Get in touch</SubText>
+          <SubText fontSize={"14px"} marginTop={{xs:'12px',md:'0px'}}>Get in touch</SubText>
           <Grid2
           container
           spacing={4}
@@ -106,7 +126,6 @@ export default function Footer() {
           sx={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between",
             alignItems: "start",
             gap: "16px",
           }}
@@ -116,8 +135,10 @@ export default function Footer() {
             </SubText>
 
           {Applications.map((el, index) => (
-            <SubText fontSize={'14px'} fontWeight={400}  key={index}>
-              {el}
+            <SubText sx={{
+              cursor:'pointer'
+            }} fontSize={'14px'} fontWeight={400}  key={index} onClick={()=>handleNavigation(el.link)}>
+              {el.name}
             </SubText>
           ))}
         </Grid>
@@ -125,7 +146,6 @@ export default function Footer() {
           sx={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between",
             alignItems: "start",
             gap: "16px",
           }}
@@ -135,8 +155,10 @@ export default function Footer() {
             </SubText>
 
           {QuickLinks.map((el, index) => (
-            <SubText fontSize={'14px'} fontWeight={400} key={index} sx={{cursor:'pointer'}}>
-              {el}
+            <SubText  sx={{
+              cursor:'pointer'
+            }} fontSize={'14px'} fontWeight={400} key={index} onClick={()=>handleNavigation(el.link)}>
+              {el.name}
             </SubText>
           ))}
         </Grid>

@@ -2,7 +2,7 @@ import MainHeader from "@/components/common/Typography/main-header";
 import SubHeader from "@/components/common/Typography/sub-header";
 import SubText from "@/components/common/Typography/sub-text";
 import WhyItMattersSection from "@/components/landing-page/why-it-matters-section/page";
-import { Box, Grid2, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, Grid2, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -25,7 +25,7 @@ const productCardContent: any = {
     image1: "/landing-page/product-section/afas_image_2.svg",
     title1: "Proactive Water Management",
     content1: `Helps municipalities plan and respond to potential shortages before they escalate.`,
-    image2: "/Product-page/afas_benefits_1.svg",
+    image2: "/Product-page/exaplain.svg",
     title2: "Accurate Consumption Forecasts",
     content2:
       "Predicts future water needs based on historical and real-time data.",
@@ -199,7 +199,7 @@ const Productfeatures: Record<string, Int_feature_card_props[]> = {
           title: "Monitors ",
         },
       ],
-      src: "/landing-page/mid-content/efficient.svg",
+      src: "/Product-page/Pezi_Ikaria.svg",
     },
     {
       title: "This enables municipalities to:",
@@ -450,7 +450,7 @@ const ProductRoi: Record<string, Int_roi_card_props> = {
   },
   "afas-pro": {
     text: `AFAS Pro enables smart water management, reducing emergency costs and protecting infrastructure. It ensures efficient resource use and monitors structural health to prevent shortages. Ideal for sustainable, proactive planning.`,
-    src: "/Product-page/afas_roi.svg",
+    src: "/Product-page/Ikaria.svg",
     caption: "Our bodies are 90% water Our survival depends on it ",
     title: "AFAS Pro: Because every drop is precious",
   },
@@ -573,6 +573,7 @@ function ProductDetail({ name }: { name: string }) {
             {item.content}
           </SubText>
         </Box>
+
       </Box>
     );
   };

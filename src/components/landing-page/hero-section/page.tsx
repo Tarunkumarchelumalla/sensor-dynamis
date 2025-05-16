@@ -163,6 +163,7 @@ function HeroSection() {
             }}
           >
             <Button
+              onClick={()=> window.open('https://demo-web-app-t85e-chryskoums-projects.vercel.app/')}
               startIcon={
                 <Image
                   src={"/landing-page/hero-section/play.svg"}

@@ -1,7 +1,8 @@
+import CustomButton from "@/components/common/Buttons/page";
 import MainHeader from "@/components/common/Typography/main-header";
 import SubText from "@/components/common/Typography/sub-text";
 import TabSection from "@/components/product-page/page";
-import { Box, Tab } from "@mui/material";
+import { Box, Button, Tab } from "@mui/material";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
@@ -83,6 +84,7 @@ export default async function ProductPage({ params }: any) {
             alignItems: "center",
             color: "var(--white-color)",
             maxWidth: "1280px",
+            gap: "12px",
             padding: {
               xs: "10px",
               md: "40px",
@@ -95,6 +97,20 @@ export default async function ProductPage({ params }: any) {
           <SubText sx={{ textAlign: "center" }}>
             {bgContent[name].subText || ""}
           </SubText>
+          <CustomButton
+            route="/contact"
+            
+            endIcon={
+              <Image
+                src="/landing-page/hero-section/arrow-black-45.svg"
+                alt=""
+                width={18}
+                height={18}
+              />
+            }
+          >
+            <span className="text-[var(--gray-color)]">Book Demo</span>
+          </CustomButton>
         </Box>
       </Box>
       <TabSection name={name} />

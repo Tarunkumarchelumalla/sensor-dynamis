@@ -9,18 +9,19 @@ import React from "react";
 function WhyItMattersSection() {
   const blogData = [
     {
-      image: "/landing-page/last-content/blogImage2.svg",
+      image: "/Product-page/afas_feature_2.svg",
       title: "Early Warning Systems (EWS)",
       subtext:
         "Many Early Warning Systems (EWS) fall short due to their inability to measure and analyze real-time water dynamics. Since disasters like floods, tsunamis, and dam failures are driven by change",
     },
     {
       image: "/landing-page/last-content/blogImage3.svg",
-      title: "Real-time environmental intelligence",
+      title: "Resilience Redefined:",
       subtext:
-        "Real-time monitoring of water levels and flow dynamics enables early flood and tsunami detection, protects critical infrastructure, and improves forecasting",
+        "In a world of escalating floods,droughts, and infrastructure failures, resilience is no longer",
     },
   ];
+
 
   const MainBlogCard = () => {
     return (
@@ -38,7 +39,7 @@ function WhyItMattersSection() {
           height={200}
           style={{
             width: "100%",
-            minHeight:"240px",
+            maxHeight:"240px",
             objectFit: "cover",
             borderRadius: "12px",
           }}
@@ -96,7 +97,7 @@ function WhyItMattersSection() {
             height={200}
             style={{
               width: "100%",
-              height:"100%",
+              maxHeight:"240px",
               objectFit: "cover",
               borderRadius: "12px",
             }}
