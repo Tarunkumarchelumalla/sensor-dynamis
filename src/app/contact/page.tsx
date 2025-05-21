@@ -51,30 +51,31 @@ function page() {
         </Box>
       </Box>
       <Grid2
-       container
-       
+        container
+        spacing={2}
+
       >
-        <Grid2 size={{xs:12,md:6}}  sx={{
+        <Grid2 size={{ xs: 12, md: 6 }} sx={{
           padding: {
             xs: "40px 10px",
             md: "80px",
           },
         }}>
-        <ContactForm />
+          <ContactForm />
 
         </Grid2>
-        <Grid2 size={{xs:12,md:6}}>
-               <Image
-          src={"/contact/map.svg"}
-          width={100}
-          height={100}
-          alt=""
-          style={{
-            width: "100%", 
-            height:"100%", 
-            objectFit: "cover",
-          }}
-        ></Image>
+        <Grid2 size={{ xs: 12, md: 6 }}>
+          <Image
+            src={"/contact/map.svg"}
+            width={100}
+            height={100}
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          ></Image>
 
         </Grid2>
       </Grid2>

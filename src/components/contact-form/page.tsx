@@ -3,15 +3,17 @@
 import {
   TextField,
   Button,
-  Checkbox,
-  FormControlLabel,
   Typography,
   Box,
   CircularProgress,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  SelectChangeEvent,
 } from "@mui/material";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import IntlTelInput from "react-intl-tel-input";
 import "react-intl-tel-input/dist/main.css";
 import styles from "@/app/_styles/components/contact-form.module.scss";
@@ -19,23 +21,27 @@ import DoneIcon from "@mui/icons-material/Done";
 
 export interface Int_Inquiry_details {
   name: string;
-  city: string;
-  address: string;
-  phone: string;
   email: string;
+  subject: string;
   message: string;
-  sendUpdates: boolean;
+  company?: string;
+  phone: string;
+  address: string;
+  city: string;
+  preferredContact: 'email' | 'phone';
 }
 
 const ContactForm = () => {
   const [formData, setFormData] = useState<Int_Inquiry_details>({
     name: "",
-    city: "",
-    address: "",
-    phone: "",
     email: "",
+    subject: "Inquiry",
     message: "",
-    sendUpdates: false,
+    company: "",
+    phone: "",
+    address: "",
+    city: "",
+    preferredContact: "email",
   });
 
   const [phoneValue, setPhoneValue] = useState("");
@@ -61,25 +67,28 @@ const ContactForm = () => {
     setFormData({ ...formData, phone: `${country.dialCode}${value.trim()}` });
   };
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, sendUpdates: e.target.checked });
-  };
+
 
   const validateForm = () => {
-    if (!formData.name.trim()) return "Name is required.";
-    if (!formData.email.trim()) return "Email is required.";
-    if (!/^\S+@\S+\.\S+$/.test(formData.email))
-      return "Enter a valid email address.";
-    if (!formData.city.trim()) return "City is required.";
-    if (!formData.address.trim()) return "Address is required.";
-    if (!formData.phone.trim()) return "Phone number is required.";
-    if (!formData.message.trim()) return "Message is required.";
+    if (!formData.name.trim() || formData.name.length < 2 || formData.name.length > 100) 
+      return "Name must be between 2 and 100 characters.";
+    if (!formData.email.trim() || !/^\S+@\S+\.\S+$/.test(formData.email))
+      return "Please enter a valid email address.";
+    if (!formData.phone.trim() || formData.phone.length < 7 || formData.phone.length > 20) 
+      return "Phone number must be between 7 and 20 characters.";
+    if (!/^[\d\s\+\-\(\)\.]+$/.test(formData.phone))
+      return "Phone number can only contain digits, spaces, +, -, (, ), and .";
+    if (!formData.address.trim() || formData.address.length < 5 || formData.address.length > 250) 
+      return "Address must be between 5 and 250 characters.";
+    if (!formData.city.trim() || formData.city.length < 2 || formData.city.length > 100) 
+      return "City must be between 2 and 100 characters.";
+    if (!formData.preferredContact || (!['email', 'phone'].includes(formData.preferredContact)))
+      return "Please select a preferred contact method.";
     return null;
   };
 
   const sendEmail = async () => {
     if (isSubmitting) return;
-
     const errorMessage = validateForm();
     setErrors(errorMessage);
     if (errorMessage) return;
@@ -87,19 +96,19 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/sendEmail", {
+      const response = await fetch("https://api.sensordynamis.com/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
-      if (data.success) {
-        setIsSubmitted(true);
-        setErrors(null);
-      } else {
-        setErrors("Failed to send email. Please try again.");
+      if (!response.ok) {
+        const errorData = await response.json();
+        setErrors(errorData.message || "Failed to submit form. Please try again.");
+        return;
       }
+      setIsSubmitted(true);
+      setErrors(null);
     } catch (error) {
       console.error("Error sending email:", error);
       setErrors("An error occurred. Please try again later.");
@@ -164,6 +173,17 @@ const ContactForm = () => {
 
       <TextField
         fullWidth
+        name="company"
+        label="Company (Optional)"
+        variant="outlined"
+        value={formData.company}
+        onChange={handleChange}
+        sx={textFieldStyles}
+      />
+
+
+      <TextField
+        fullWidth
         name="city"
         label="City"
         variant="outlined"
@@ -197,44 +217,32 @@ const ContactForm = () => {
         />
       </Box>
 
+      <FormControl fullWidth sx={textFieldStyles}>
+        <InputLabel>Preferred Contact Method</InputLabel>
+        <Select
+          value={formData.preferredContact}
+          onChange={(e: SelectChangeEvent<'email' | 'phone'>) => setFormData({ ...formData, preferredContact: e.target.value as 'email' | 'phone' })}
+          label="Preferred Contact Method"
+          required
+        >
+          <MenuItem value="email">Email</MenuItem>
+          <MenuItem value="phone">Phone</MenuItem>
+        </Select>
+      </FormControl>
+
       <TextField
         fullWidth
         name="message"
         label="Message"
         variant="outlined"
-        type="text"
+        multiline
+        rows={4}
         required
-        rows={3}
         value={formData.message}
         onChange={handleChange}
         sx={textFieldStyles}
       />
 
-      <FormControlLabel
-        sx={{ alignItems: "center", mt: 1 }}
-        control={
-          <Checkbox
-            checked={formData.sendUpdates}
-            onChange={handleCheckboxChange}
-            sx={{
-              color: "#6B7280",
-              "&.Mui-checked": { color: "#6366F1" },
-            }}
-          />
-        }
-        label={
-          <Typography sx={{ fontSize: "14px", color: "#374151", mt: "2px" }}>
-            You agree to our friendly&nbsp;
-            <a
-              href="#"
-              style={{ color: "#6366F1", textDecoration: "underline" }}
-            >
-              privacy policy
-            </a>
-            .
-          </Typography>
-        }
-      />
 
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Button
