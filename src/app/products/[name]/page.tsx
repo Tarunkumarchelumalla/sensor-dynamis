@@ -5,6 +5,7 @@ import TabSection from "@/components/product-page/page";
 import { Box, Button, Tab } from "@mui/material";
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import AnimatedContent from "@/components/common/animations/animated-content/page";
 
 const bgImage: Record<string, string> = {
   afas: "/Product-page/afas.svg",
@@ -91,26 +92,31 @@ export default async function ProductPage({ params }: any) {
             },
           }}
         >
-          <MainHeader sx={{ textAlign: "center" }}>
-            {bgContent[name].title || ""}
-          </MainHeader>
-          <SubText sx={{ textAlign: "center" }}>
-            {bgContent[name].subText || ""}
-          </SubText>
-          <CustomButton
-            route="/contact"
-            
-            endIcon={
-              <Image
-                src="/landing-page/hero-section/arrow-black-45.svg"
-                alt=""
-                width={18}
-                height={18}
-              />
-            }
-          >
-            <span className="text-[var(--gray-color)]">Book Demo</span>
-          </CustomButton>
+          <AnimatedContent delay={0}>
+            <MainHeader sx={{ textAlign: "center" }}>
+              {bgContent[name].title || ""}
+            </MainHeader>
+          </AnimatedContent>
+          <AnimatedContent delay={0.2}>
+            <SubText sx={{ textAlign: "center" }}>
+              {bgContent[name].subText || ""}
+            </SubText>
+          </AnimatedContent>
+          <AnimatedContent delay={0.4}>
+            <CustomButton
+              route="/contact"
+              endIcon={
+                <Image
+                  src="/landing-page/hero-section/arrow-black-45.svg"
+                  alt=""
+                  width={18}
+                  height={18}
+                />
+              }
+            >
+              <span className="text-[var(--gray-color)]">Book Demo</span>
+            </CustomButton>
+          </AnimatedContent>
         </Box>
       </Box>
       <TabSection name={name} />

@@ -26,8 +26,6 @@ export interface Int_Inquiry_details {
   message: string;
   company?: string;
   phone: string;
-  address: string;
-  city: string;
   preferredContact: 'email' | 'phone';
 }
 
@@ -39,8 +37,6 @@ const ContactForm = () => {
     message: "",
     company: "",
     phone: "",
-    address: "",
-    city: "",
     preferredContact: "email",
   });
 
@@ -78,11 +74,7 @@ const ContactForm = () => {
       return "Phone number must be between 7 and 20 characters.";
     if (!/^[\d\s\+\-\(\)\.]+$/.test(formData.phone))
       return "Phone number can only contain digits, spaces, +, -, (, ), and .";
-    if (!formData.address.trim() || formData.address.length < 5 || formData.address.length > 250) 
-      return "Address must be between 5 and 250 characters.";
-    if (!formData.city.trim() || formData.city.length < 2 || formData.city.length > 100) 
-      return "City must be between 2 and 100 characters.";
-    if (!formData.preferredContact || (!['email', 'phone'].includes(formData.preferredContact)))
+      if (!formData.preferredContact || (!['email', 'phone'].includes(formData.preferredContact)))
       return "Please select a preferred contact method.";
     return null;
   };
@@ -96,7 +88,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://api.sensordynamis.com/contact", {
+      const response = await fetch("https://api.sensordynamis.com/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -180,30 +172,7 @@ const ContactForm = () => {
         onChange={handleChange}
         sx={textFieldStyles}
       />
-
-
-      <TextField
-        fullWidth
-        name="city"
-        label="City"
-        variant="outlined"
-        required
-        value={formData.city}
-        onChange={handleChange}
-        sx={textFieldStyles}
-      />
-
-      <TextField
-        fullWidth
-        name="address"
-        label="Address"
-        variant="outlined"
-        required
-        value={formData.address}
-        onChange={handleChange}
-        sx={textFieldStyles}
-      />
-
+      
       <Box className={`${styles["form-group"]} text-[#000]`}>
         <IntlTelInput
           defaultCountry="in"

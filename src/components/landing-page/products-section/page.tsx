@@ -128,7 +128,7 @@ function ProductSection() {
           View More
         </SubText>
         <Image
-          src={"/testimonials/right-arrow.svg"}
+          src={"/landing-page/testimonials/right-arrow.svg"}
           alt={""}
           height={10}
           width={10}

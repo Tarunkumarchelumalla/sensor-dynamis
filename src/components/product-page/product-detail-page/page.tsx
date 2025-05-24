@@ -5,6 +5,7 @@ import WhyItMattersSection from "@/components/landing-page/why-it-matters-sectio
 import { Box, Button, Grid2, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import AnimatedContent from "@/components/common/animations/animated-content/page";
 
 const productCardContent: any = {
   afas: {
@@ -489,10 +490,11 @@ interface Int_points {
   content: string;
 }
 
-interface Int_feature_card_props {
+export interface Int_feature_card_props {
   src: string;
   title: string;
   points: Int_points[];
+  order?: 'image-first' | 'content-first'; // Default is 'image-first'
 }
 
 interface Int_roi_card_props {
@@ -703,7 +705,9 @@ function ProductDetail({ name }: { name: string }) {
               },
             }}
           >
-            <MainHeader>Key BeneFits</MainHeader>
+            <AnimatedContent delay={0}>
+              <MainHeader>Key BeneFits</MainHeader>
+            </AnimatedContent>
             <Grid2 container spacing={2} marginTop={"20px"} display={"flex"}>
               <Grid2
                 size={{
@@ -717,8 +721,12 @@ function ProductDetail({ name }: { name: string }) {
                   height: "100%",
                 }}
               >
-                <ProductCard {...(product1 as any)} />
-                <ProductCard {...(product2 as any)} />
+                <AnimatedContent delay={0.2}>
+                  <ProductCard {...(product1 as any)} />
+                </AnimatedContent>
+                <AnimatedContent delay={0.4}>
+                  <ProductCard {...(product2 as any)} />
+                </AnimatedContent>
               </Grid2>
               <Grid2
                 size={{
@@ -729,7 +737,9 @@ function ProductDetail({ name }: { name: string }) {
                   display: "flex",
                 }}
               >
+                <AnimatedContent delay={0.6}>
                 <ProductCard {...(product3 as any)} />
+              </AnimatedContent>
               </Grid2>
             </Grid2>
           </Box>
@@ -766,14 +776,20 @@ function ProductDetail({ name }: { name: string }) {
         >
           <Grid2 container spacing={2}>
             <Grid2 size={{ xs: 12, md: 6 }}>
+              <AnimatedContent delay={0}>
               <MainHeader>ROI</MainHeader>
+            </AnimatedContent>
             </Grid2>
             <Grid2 size={{ xs: 12, md: 6 }}>
+              <AnimatedContent delay={0.2}>
               <SubText fontSize={"20px"}>{roiData.text}</SubText>
+            </AnimatedContent>
             </Grid2>
           </Grid2>
 
-          <DesktopCard {...roiData} />
+          <AnimatedContent delay={0.4}>
+            <DesktopCard {...roiData} />
+          </AnimatedContent>
         </Box>
       )}
       <WhyItMattersSection />
